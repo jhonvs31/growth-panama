@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Growth Business Developers® | LATAM</title>
-  <meta name="description" content="Growth Business Developers® — Expertos en la industria turística. Mercadeo empresarial, desarrollo de negocios e innovación en LATAM." />
+  <meta name="description" content="Growth Business Developers® — Lideramos la planificación, gestión y ejecución de congresos nacionales e internacionales con visión estratégica y excelencia operativa en LATAM." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -224,6 +224,25 @@
     .about-feature { display: flex; align-items: flex-start; gap: 10px; font-size: 0.875rem; color: var(--text); font-weight: 500; }
     .about-feature-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); margin-top: 5px; flex-shrink: 0; }
 
+    /* ── TEAM GRID ── */
+    .team-section { margin-top: 80px; padding-top: 60px; border-top: 1px solid rgba(13,33,55,0.08); }
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+    .team-card {
+      background: var(--white); border: 1px solid rgba(13,33,55,0.06);
+      border-radius: 16px; padding: 32px 20px; text-align: center;
+      box-shadow: 0 4px 16px rgba(13,33,55,0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .team-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(13,33,55,0.1); }
+    .team-avatar {
+      width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 16px;
+      background: linear-gradient(135deg, var(--navy), var(--navy2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.6rem; border: 3px solid var(--cream2);
+    }
+    .team-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+    .team-role { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+
     /* ── SERVICES ── */
     #services { background: var(--navy); }
     #services .section-label { color: var(--gold); }
@@ -273,73 +292,24 @@
     }
     .service-list li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-size: 0.75rem; }
 
-    /* ── BOT LENA ── */
-    #lena { background: var(--cream2); }
-    .lena-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .lena-visual { position: relative; display: flex; align-items: center; justify-content: center; }
-    .lena-blob-bg {
-      position: absolute; width: 420px; height: 420px;
-      background: linear-gradient(135deg, rgba(13,33,55,0.1), rgba(42,92,63,0.08));
-      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-      animation: blobFloat 10s ease-in-out infinite;
+    /* ── ALCANCE REGIONAL ── */
+    #alcance { background: var(--cream2); }
+    .alcance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .alcance-map { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .alcance-country {
+      background: var(--white); border: 1px solid rgba(13,33,55,0.06);
+      border-radius: 12px; padding: 16px 14px; text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     }
-    @keyframes blobFloat { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-28px) rotate(4deg)} }
-    .lena-card {
-      position: relative; z-index: 2; background: var(--navy);
-      border-radius: 24px; padding: 40px 36px; width: 320px;
-      box-shadow: 0 24px 64px rgba(13,33,55,0.22);
-      border: 1px solid rgba(200,168,107,0.2);
-    }
-    .lena-avatar {
-      width: 72px; height: 72px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold), var(--green));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2rem; margin-bottom: 20px;
-      box-shadow: 0 8px 24px rgba(200,168,107,0.28);
-    }
-    .lena-card-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-style: italic; color: var(--white); margin-bottom: 4px; }
-    .lena-card-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-    .lena-card-desc { font-size: 0.87rem; line-height: 1.7; color: rgba(255,255,255,0.58); margin-bottom: 24px; }
-    .lena-roles { display: flex; flex-direction: column; gap: 10px; }
-    .lena-role {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.82rem; color: rgba(255,255,255,0.74);
-      background: rgba(255,255,255,0.05); padding: 10px 14px;
-      border-radius: 8px; border: 1px solid rgba(255,255,255,0.07);
-    }
-    .lena-text .section-desc { margin-bottom: 22px; }
-    .lena-text p { font-size: 0.97rem; line-height: 1.8; color: var(--muted); margin-bottom: 14px; }
-    .lena-tag {
-      display: inline-block; background: var(--navy); color: var(--gold);
-      font-size: 0.73rem; font-weight: 600; letter-spacing: 0.09em;
-      padding: 6px 14px; border-radius: 20px;
-      border: 1px solid rgba(200,168,107,0.28); margin: 4px 4px 4px 0;
-    }
-    .lena-tags { margin-top: 24px; }
+    .alcance-country:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(13,33,55,0.1); border-color: var(--gold); }
+    .alcance-country .flag { font-size: 2rem; margin-bottom: 6px; }
+    .alcance-country .name { font-size: 0.82rem; font-weight: 600; color: var(--navy); }
+    .alcance-hub { grid-column: span 3; background: var(--navy); border-color: var(--gold); }
+    .alcance-hub .flag { font-size: 2.4rem; }
+    .alcance-hub .name { color: var(--gold); font-size: 1rem; }
+    .alcance-hub .hub-label { font-size: 0.68rem; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
 
-    /* ── PROCESS ── */
-    #process { background: var(--cream); }
-    .process-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 64px; }
-    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
-    .process-steps::before {
-      content: ''; position: absolute; top: 36px; left: 12.5%; right: 12.5%;
-      height: 1px; background: linear-gradient(90deg, var(--green), var(--gold)); z-index: 0;
-    }
-    .process-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 16px; position: relative; z-index: 1; }
-    .process-num {
-      width: 72px; height: 72px; border-radius: 50%;
-      background: var(--white); border: 2px solid var(--green);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif; font-size: 1.4rem;
-      font-weight: 700; color: var(--navy); margin-bottom: 20px;
-      box-shadow: 0 4px 16px rgba(42,92,63,0.14);
-      transition: background 0.3s, border-color 0.3s, color 0.3s;
-    }
-    .process-step:hover .process-num { background: var(--navy); border-color: var(--gold); color: var(--gold); }
-    .process-step-title { font-weight: 700; font-size: 0.9rem; color: var(--navy); margin-bottom: 8px; }
-    .process-step-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
-
-    /* ── INDUSTRIES ── */
+    /* ── INDUSTRIES / SECTORS ── */
     #industries { background: var(--navy2); }
     #industries .section-label { color: var(--gold); }
     #industries .section-label::before { background: var(--gold); }
@@ -361,7 +331,8 @@
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
     .contact-info p { font-size: 0.97rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
     .contact-items { display: flex; flex-direction: column; gap: 20px; }
-    .contact-item { display: flex; align-items: flex-start; gap: 16px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 16px; text-decoration: none; color: inherit; transition: transform 0.2s; }
+    .contact-item:hover { transform: translateX(4px); }
     .contact-item-icon {
       width: 44px; height: 44px; border-radius: 10px; background: var(--navy);
       display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;
@@ -459,30 +430,32 @@
       .hero-right { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
       .hero-pillars { display: none; }
       .services-grid { grid-template-columns: 1fr 1fr; }
-      .about-grid, .lena-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-grid, .alcance-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
       .about-badge { right: 12px; bottom: -20px; }
-      .process-intro { grid-template-columns: 1fr; }
       .services-header { grid-template-columns: 1fr; gap: 24px; }
       .industries-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .services-grid { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
-      .process-steps::before { display: none; }
       .industries-grid { grid-template-columns: 1fr 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
+      .alcance-map { grid-template-columns: repeat(3, 1fr); }
+      .alcance-hub { grid-column: span 3; }
     }
     @media (max-width: 480px) {
       .section-inner { padding: 72px 6%; }
       .hero-content { padding: 120px 6% 64px; }
       .hero-right { grid-template-columns: 1fr 1fr; }
-      .process-steps { grid-template-columns: 1fr; }
       .industries-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .alcance-map { grid-template-columns: 1fr 1fr; }
+      .alcance-hub { grid-column: span 2; }
       .lang-btn .lang-label { display: none; }
     }
 
@@ -519,11 +492,11 @@
 
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="#about" data-i18n="nav.about">Nosotros</a></li>
-        <li><a href="#services" data-i18n="nav.services">Servicios</a></li>
-        <li><a href="#lena" data-i18n="nav.lena">Bot Lena</a></li>
-        <li><a href="#process" data-i18n="nav.process">Proceso</a></li>
-        <li><a href="#contact" class="nav-cta" data-i18n="nav.contact">Contáctanos</a></li>
+        <li><a href="#about" data-i18n="nav.about">Quiénes Somos</a></li>
+        <li><a href="#services" data-i18n="nav.services">¿Qué Hacemos?</a></li>
+        <li><a href="#alcance" data-i18n="nav.alcance">Alcance</a></li>
+        <li><a href="#industries" data-i18n="nav.sectors">Sectores</a></li>
+        <li><a href="#contact" class="nav-cta" data-i18n="nav.contact">Contáctenos</a></li>
       </ul>
       <button class="lang-btn" id="langToggle" aria-label="Cambiar idioma">
         <span>🌐</span>
@@ -537,11 +510,11 @@
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#about" onclick="closeMobileMenu()" data-i18n="nav.about">Nosotros</a>
-    <a href="#services" onclick="closeMobileMenu()" data-i18n="nav.services">Servicios</a>
-    <a href="#lena" onclick="closeMobileMenu()" data-i18n="nav.lena">Bot Lena</a>
-    <a href="#process" onclick="closeMobileMenu()" data-i18n="nav.process">Proceso</a>
-    <a href="#contact" class="cta-mobile" onclick="closeMobileMenu()" data-i18n="nav.contact">Contáctanos</a>
+    <a href="#about" onclick="closeMobileMenu()" data-i18n="nav.about">Quiénes Somos</a>
+    <a href="#services" onclick="closeMobileMenu()" data-i18n="nav.services">¿Qué Hacemos?</a>
+    <a href="#alcance" onclick="closeMobileMenu()" data-i18n="nav.alcance">Alcance</a>
+    <a href="#industries" onclick="closeMobileMenu()" data-i18n="nav.sectors">Sectores</a>
+    <a href="#contact" class="cta-mobile" onclick="closeMobileMenu()" data-i18n="nav.contact">Contáctenos</a>
   </div>
 
   <!-- HERO -->
@@ -550,19 +523,18 @@
     <div class="hero-gradient"></div>
     <div class="hero-content">
       <div class="hero-left">
-        <div class="hero-label" data-i18n="hero.label">Expertos en la industria turística</div>
+        <div class="hero-label" data-i18n="hero.label">Lideramos congresos · Conectamos destinos · Creamos oportunidades</div>
         <h1 class="hero-title">
-          <span data-i18n="hero.title1">Where destinations</span><br/>
-          <em data-i18n="hero.title2">shine</em> <span data-i18n="hero.title3">&amp; events</span><br/>
-          <span data-i18n="hero.title4">thrive.</span>
+          <span data-i18n="hero.title1">Organizamos congresos</span><br/>
+          <em data-i18n="hero.title2">que generan impacto.</em>
         </h1>
         <p class="hero-desc" data-i18n="hero.desc">
-          Desarrolladores de negocios guiados por la pasión de marcar la diferencia.
-          Impulsamos el crecimiento estratégico, sostenible e innovador en LATAM.
+          Planificamos, gestionamos y ejecutamos congresos nacionales e internacionales
+          con una visión estratégica, excelencia operativa y una sólida red de aliados en toda la región.
         </p>
         <div class="hero-actions">
-          <a href="#services" class="btn-primary" data-i18n="hero.cta1">Nuestros Servicios</a>
-          <a href="#contact" class="btn-outline" data-i18n="hero.cta2">Hablemos</a>
+          <a href="#services" class="btn-primary" data-i18n="hero.cta1">Conozca nuestros servicios</a>
+          <a href="#contact" class="btn-outline" data-i18n="hero.cta2">Agende una reunión</a>
         </div>
       </div>
 
@@ -570,45 +542,45 @@
         <div class="hero-stat-row">
           <div class="hero-stat">
             <div class="hero-stat-number" data-count="10" data-prefix="+">+10</div>
-            <div class="hero-stat-label" data-i18n="hero.stat1">Años de experiencia en la industria</div>
+            <div class="hero-stat-label" data-i18n="hero.stat1">Años liderando congresos en la región</div>
           </div>
           <div class="hero-stat">
-            <div class="hero-stat-number" data-count="3">3</div>
-            <div class="hero-stat-label" data-i18n="hero.stat2">Pilares de servicio especializados</div>
+            <div class="hero-stat-number" data-count="9">9</div>
+            <div class="hero-stat-label" data-i18n="hero.stat2">Países con alcance en las Américas</div>
           </div>
           <div class="hero-stat">
             <div class="hero-stat-number">LATAM</div>
-            <div class="hero-stat-label" data-i18n="hero.stat3">Presencia y alcance regional</div>
+            <div class="hero-stat-label" data-i18n="hero.stat3">Presencia y red de aliados regional</div>
           </div>
           <div class="hero-stat">
             <div class="hero-stat-number">360°</div>
-            <div class="hero-stat-label" data-i18n="hero.stat4">Soluciones integrales de negocio</div>
+            <div class="hero-stat-label" data-i18n="hero.stat4">Gestión integral de congresos</div>
           </div>
         </div>
         <div class="hero-pillars">
           <div class="hero-pillar">
-            <div class="hero-pillar-icon">📣</div>
-            <span data-i18n="hero.pillar1">Marketing Company</span>
+            <div class="hero-pillar-icon">🎯</div>
+            <span data-i18n="hero.pillar1">Estrategia</span>
           </div>
           <div class="hero-pillar">
-            <div class="hero-pillar-icon">🚀</div>
-            <span data-i18n="hero.pillar2">Business Development</span>
+            <div class="hero-pillar-icon">🏨</div>
+            <span data-i18n="hero.pillar2">Destinos &amp; Sedes</span>
           </div>
           <div class="hero-pillar">
-            <div class="hero-pillar-icon">💡</div>
-            <span data-i18n="hero.pillar3">Innovation Center</span>
+            <div class="hero-pillar-icon">⚙️</div>
+            <span data-i18n="hero.pillar3">Operación</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ABOUT / QUIÉNES SOMOS -->
   <section id="about">
     <div class="section-inner">
       <div class="about-grid">
         <div class="about-image-wrap gsap-hidden">
-          <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80" alt="Equipo Growth Business Developers" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80" alt="Congreso internacional organizado por Growth Business Developers" loading="lazy" />
           <div class="about-badge">
             <div class="about-badge-num">GBD®</div>
             <div class="about-badge-text">Panama · LATAM</div>
@@ -617,246 +589,270 @@
         <div class="about-text">
           <div class="section-label gsap-hidden" data-i18n="about.label">Quiénes Somos</div>
           <h2 class="section-title gsap-hidden">
-            <span data-i18n="about.title1">Nuestra inspiración viene de</span><br/>
-            <em data-i18n="about.title2">desarrollar negocios</em> <span data-i18n="about.title3">en todas partes.</span>
+            <span data-i18n="about.title1">Somos tu aliado</span><br/>
+            <em data-i18n="about.title2">para congresos.</em>
           </h2>
           <p class="section-desc gsap-hidden" data-i18n="about.desc">
-            Somos especialistas en el desarrollo de negocios dentro de la industria turística,
-            con un enfoque estratégico que impulsa el crecimiento sostenible y la innovación.
+            No organizamos únicamente eventos. Lideramos la planificación, negociación,
+            producción y ejecución de congresos nacionales e internacionales,
+            representando siempre los intereses de nuestros clientes.
           </p>
           <p class="gsap-hidden" data-i18n="about.p2">
-            Nuestra amplia experiencia trabajando con el sector privado y público nos permite
-            ofrecer soluciones dinámicas, adaptadas a las necesidades de cada cliente y
-            orientadas a maximizar el potencial de sus proyectos.
+            Desde la selección del destino hasta el último participante que abandona el evento,
+            garantizamos una experiencia impecable con visión estratégica y excelencia operativa.
           </p>
           <p class="about-quote gsap-hidden" data-i18n="about.quote">
-            "Driven by the desire to stand out and go beyond the ordinary."
+            "Desde la selección del destino hasta el último participante que abandona el evento."
           </p>
           <div class="about-features gsap-hidden">
-            <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="about.f1">Sector privado &amp; público</span></div>
-            <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="about.f2">Estrategia basada en datos</span></div>
-            <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="about.f3">Industria turística LATAM</span></div>
-            <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="about.f4">Innovación tecnológica</span></div>
-            <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="about.f5">Responsabilidad comunitaria</span></div>
-            <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="about.f6">Programas de fidelización</span></div>
+            <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="about.f1">Planificación estratégica</span></div>
+            <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="about.f2">Excelencia operativa</span></div>
+            <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="about.f3">Red de aliados regional</span></div>
+            <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="about.f4">Representación del cliente</span></div>
+            <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="about.f5">Congresos nacionales e internacionales</span></div>
+            <div class="about-feature"><div class="about-feature-dot"></div><span data-i18n="about.f6">Gestión integral 360°</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NUESTRO EQUIPO (4 por fila) -->
+      <div class="team-section">
+        <div style="text-align:center;max-width:600px;margin:0 auto">
+          <div class="section-label gsap-hidden" style="justify-content:center" data-i18n="team.label">Nuestro Equipo</div>
+          <h2 class="section-title gsap-hidden" data-i18n="team.title">
+            Profesionales comprometidos<br/>con <em>tu congreso</em>
+          </h2>
+        </div>
+        <div class="team-grid">
+          <div class="team-card gsap-hidden">
+            <div class="team-avatar">👩‍💼</div>
+            <div class="team-name" data-i18n="team.n1">Nombre</div>
+            <div class="team-role" data-i18n="team.r1">Dirección General</div>
+          </div>
+          <div class="team-card gsap-hidden">
+            <div class="team-avatar">👨‍💼</div>
+            <div class="team-name" data-i18n="team.n2">Nombre</div>
+            <div class="team-role" data-i18n="team.r2">Operaciones</div>
+          </div>
+          <div class="team-card gsap-hidden">
+            <div class="team-avatar">👩‍💻</div>
+            <div class="team-name" data-i18n="team.n3">Nombre</div>
+            <div class="team-role" data-i18n="team.r3">Comercial</div>
+          </div>
+          <div class="team-card gsap-hidden">
+            <div class="team-avatar">👨‍🔬</div>
+            <div class="team-name" data-i18n="team.n4">Nombre</div>
+            <div class="team-role" data-i18n="team.r4">Producción</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- ¿QUÉ HACEMOS? (7 categorías de servicios) -->
   <section id="services">
     <div class="section-inner">
       <div class="services-header">
         <div>
-          <div class="section-label gsap-hidden" data-i18n="services.label">Lo Que Hacemos</div>
+          <div class="section-label gsap-hidden" data-i18n="services.label">¿Qué Hacemos?</div>
           <h2 class="section-title gsap-hidden">
-            <span data-i18n="services.title1">Tres pilares para</span><br/>
-            <em data-i18n="services.title2">impulsar tu negocio</em>
+            <span data-i18n="services.title1">Servicios integrales</span><br/>
+            <em data-i18n="services.title2">para tu congreso</em>
           </h2>
         </div>
         <p class="section-desc gsap-hidden" data-i18n="services.desc">
-          Ofrecemos soluciones integrales que abarcan desde la estrategia de marca hasta
-          la implementación de tecnología de punta en el sector turístico y de eventos.
+          Cubrimos cada etapa de tu congreso con 7 pilares de servicio especializados,
+          desde la postulación de candidatura hasta el cierre y memorias.
         </p>
       </div>
       <div class="services-grid">
+        <!-- 1. Estrategia y Diseño -->
         <div class="service-card gsap-hidden">
-          <div class="service-icon mk">📣</div>
-          <div class="service-name" data-i18n="s1.name">Marketing Company</div>
-          <div class="service-sub" data-i18n="s1.sub">Marca &amp; Comunicación</div>
+          <div class="service-icon mk">📋</div>
+          <div class="service-name" data-i18n="s1.name">Estrategia y Diseño</div>
+          <div class="service-sub" data-i18n="s1.sub">De la postulación al cierre</div>
           <ul class="service-list">
-            <li data-i18n="s1.i1">Brand Positioning Strategy</li>
-            <li data-i18n="s1.i2">Public Relations &amp; Communications</li>
-            <li data-i18n="s1.i3">Targeted Advertising Campaigns</li>
-            <li data-i18n="s1.i4">Data Diagnostic &amp; Analytics</li>
-            <li data-i18n="s1.i5">Consultancy &amp; Strategic Planning</li>
+            <li data-i18n="s1.i1">Diseño de candidatura</li>
+            <li data-i18n="s1.i2">Estrategia del congreso</li>
+            <li data-i18n="s1.i3">Planificación presupuestaria</li>
+            <li data-i18n="s1.i4">Planos de la sala de exposiciones</li>
+            <li data-i18n="s1.i5">Gestión de riesgos</li>
+            <li data-i18n="s1.i6">Apoyo al comité organizador</li>
           </ul>
         </div>
+        <!-- 2. Gestión de destinos y recintos -->
         <div class="service-card gsap-hidden">
-          <div class="service-icon bd">🚀</div>
-          <div class="service-name" data-i18n="s2.name">Business Development</div>
-          <div class="service-sub" data-i18n="s2.sub">Crecimiento &amp; Rentabilidad</div>
+          <div class="service-icon bd">📍</div>
+          <div class="service-name" data-i18n="s2.name">Gestión de Destinos</div>
+          <div class="service-sub" data-i18n="s2.sub">La sede correcta</div>
           <ul class="service-list">
-            <li data-i18n="s2.i1">Captadores de oportunidades de negocio</li>
-            <li data-i18n="s2.i2">Estrategia para incrementar ingresos</li>
-            <li data-i18n="s2.i3">Optimización de egresos</li>
-            <li data-i18n="s2.i4">Programas de fidelización de clientes</li>
-            <li data-i18n="s2.i5">Responsabilidad comunitaria</li>
+            <li data-i18n="s2.i1">Búsqueda de sede (hoteles, centro de convenciones)</li>
+            <li data-i18n="s2.i2">Revisión de propuestas</li>
+            <li data-i18n="s2.i3">Visitas de inspección en destino</li>
+            <li data-i18n="s2.i4">Conexión con bureaus de convenciones</li>
+            <li data-i18n="s2.i5">Manejo de incentivos por destino</li>
           </ul>
         </div>
+        <!-- 3. Operación de Congresos -->
         <div class="service-card gsap-hidden">
-          <div class="service-icon ic">💡</div>
-          <div class="service-name" data-i18n="s3.name">Innovation Center</div>
-          <div class="service-sub" data-i18n="s3.sub">Tecnología &amp; Experiencia</div>
+          <div class="service-icon ic">⚙️</div>
+          <div class="service-name" data-i18n="s3.name">Operación de Congresos</div>
+          <div class="service-sub" data-i18n="s3.sub">Logística integral</div>
           <ul class="service-list">
-            <li data-i18n="s3.i1">Badges digitales · Apple Wallet</li>
-            <li data-i18n="s3.i2">Traducción en línea en tiempo real</li>
-            <li data-i18n="s3.i3">Hologramas para expositores</li>
-            <li data-i18n="s3.i4">Avatares interactivos</li>
-            <li data-i18n="s3.i5">Salas mudas &amp; Votación interactiva</li>
+            <li data-i18n="s3.i1">Gestión de tiquetes aéreos</li>
+            <li data-i18n="s3.i2">Inscripciones y alojamientos</li>
+            <li data-i18n="s3.i3">Transportes y asistencia en aeropuerto</li>
+            <li data-i18n="s3.i4">Señalizaciones y personal de protocolo</li>
+            <li data-i18n="s3.i5">Interpretación simultánea</li>
+            <li data-i18n="s3.i6">Producción audiovisual y servicios de A&amp;B</li>
+          </ul>
+        </div>
+        <!-- 4. Programa Científico -->
+        <div class="service-card gsap-hidden">
+          <div class="service-icon mk">🔬</div>
+          <div class="service-name" data-i18n="s4.name">Programa Científico</div>
+          <div class="service-sub" data-i18n="s4.sub">Contenido académico</div>
+          <ul class="service-list">
+            <li data-i18n="s4.i1">Gestión de resúmenes</li>
+            <li data-i18n="s4.i2">Coordinación de ponentes</li>
+            <li data-i18n="s4.i3">Plataforma científica</li>
+            <li data-i18n="s4.i4">Actas y certificados</li>
+          </ul>
+        </div>
+        <!-- 5. Patrocinios y exposición -->
+        <div class="service-card gsap-hidden">
+          <div class="service-icon bd">💎</div>
+          <div class="service-name" data-i18n="s5.name">Patrocinios y Exposición</div>
+          <div class="service-sub" data-i18n="s5.sub">Oportunidades comerciales</div>
+          <ul class="service-list">
+            <li data-i18n="s5.i1">Búsqueda de patrocinios</li>
+            <li data-i18n="s5.i2">Gestión de expositores</li>
+            <li data-i18n="s5.i3">Oportunidades comerciales</li>
+          </ul>
+        </div>
+        <!-- 6. Experiencia de los delegados -->
+        <div class="service-card gsap-hidden">
+          <div class="service-icon ic">🌟</div>
+          <div class="service-name" data-i18n="s6.name">Experiencia del Delegado</div>
+          <div class="service-sub" data-i18n="s6.sub">Momentos memorables</div>
+          <ul class="service-list">
+            <li data-i18n="s6.i1">Eventos sociales y cenas de gala</li>
+            <li data-i18n="s6.i2">Tours gastronómicos y culturales (grupales y VIPs)</li>
+            <li data-i18n="s6.i3">Actividades de relacionamiento y Team building</li>
+            <li data-i18n="s6.i4">Salas de bienestar y descanso en sede</li>
+            <li data-i18n="s6.i5">Reservación de restaurantes</li>
+          </ul>
+        </div>
+        <!-- 7. Producción Creativa -->
+        <div class="service-card gsap-hidden">
+          <div class="service-icon mk">🎨</div>
+          <div class="service-name" data-i18n="s7.name">Producción Creativa</div>
+          <div class="service-sub" data-i18n="s7.sub">Comunicación on &amp; off</div>
+          <ul class="service-list">
+            <li data-i18n="s7.i1">Fotografía y video</li>
+            <li data-i18n="s7.i2">Branding y diseño</li>
+            <li data-i18n="s7.i3">Material gráfico e impresión</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BOT LENA -->
-  <section id="lena">
+  <!-- ALCANCE REGIONAL -->
+  <section id="alcance">
     <div class="section-inner">
-      <div class="lena-grid">
-        <div class="lena-visual gsap-hidden">
-          <div class="lena-blob-bg"></div>
-          <div class="lena-card">
-            <div class="lena-avatar">🤖</div>
-            <div class="lena-card-name">Bot Lena</div>
-            <div class="lena-card-title" data-i18n="lena.title">AI Influencer · Bleisure Experience</div>
-            <p class="lena-card-desc" data-i18n="lena.desc">
-              Diseñada para transformar la forma en que los negocios y el turismo convergen,
-              Lena es nuestra inteligencia artificial especializada en experiencias Bleisure.
-            </p>
-            <div class="lena-roles">
-              <div class="lena-role"><span>💼</span><span data-i18n="lena.r1">Business Innovator</span></div>
-              <div class="lena-role"><span>🔍</span><span data-i18n="lena.r2">Opportunities Explorer</span></div>
-              <div class="lena-role"><span>✈️</span><span data-i18n="lena.r3">Travel Ambassador</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="lena-text">
-          <div class="section-label gsap-hidden" data-i18n="lena.label">Innovación con IA</div>
-          <h2 class="section-title gsap-hidden">
-            <span data-i18n="lena.h1">Conoce a</span> <em>Lena</em>,<br/>
-            <span data-i18n="lena.h2">nuestra AI Influencer</span>
-          </h2>
-          <p class="gsap-hidden" data-i18n="lena.p1">
-            Bot Lena representa la convergencia perfecta entre los negocios y el placer —
-            el concepto <strong>Bleisure</strong>. Diseñada para potenciar experiencias
-            únicas en el sector turístico y de reuniones.
-          </p>
-          <p class="gsap-hidden" data-i18n="lena.p2">
-            Como embajadora digital de Growth, Lena explora oportunidades, identifica
-            tendencias y conecta a empresas con destinos y experiencias que transforman
-            sus estrategias de negocio.
-          </p>
-          <div class="lena-tags gsap-hidden">
-            <span class="lena-tag">MICE Industry</span>
-            <span class="lena-tag">Bleisure Travel</span>
-            <span class="lena-tag">AI Innovation</span>
-            <span class="lena-tag">Digital Events</span>
-            <span class="lena-tag">Destination Marketing</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section id="process">
-    <div class="section-inner">
-      <div class="process-intro">
+      <div class="alcance-grid">
         <div>
-          <div class="section-label gsap-hidden" data-i18n="process.label">Cómo Trabajamos</div>
+          <div class="section-label gsap-hidden" data-i18n="alcance.label">Alcance Regional</div>
           <h2 class="section-title gsap-hidden">
-            <span data-i18n="process.h1">Nuestra ruta</span><br/>
-            <em data-i18n="process.h2">hacia el éxito</em>
+            <span data-i18n="alcance.title1">Conectamos destinos</span><br/>
+            <em data-i18n="alcance.title2">en toda la región</em>
           </h2>
+          <p class="section-desc gsap-hidden" data-i18n="alcance.desc">
+            Operamos con una sólida red de alianzas estratégicas, bureaus de convenciones
+            y proveedores de primer nivel en los principales destinos de las Américas.
+          </p>
         </div>
-        <p class="section-desc gsap-hidden" data-i18n="process.desc">
-          Seguimos un proceso probado que nos permite identificar oportunidades únicas
-          y ejecutar estrategias de alto impacto para cada cliente.
-        </p>
-      </div>
-      <div class="process-steps">
-        <div class="process-step gsap-hidden">
-          <div class="process-num">01</div>
-          <div class="process-step-title" data-i18n="p1.t">Corporate Strategy</div>
-          <div class="process-step-desc" data-i18n="p1.d">Análisis profundo del negocio y definición de objetivos estratégicos</div>
-        </div>
-        <div class="process-step gsap-hidden">
-          <div class="process-num">02</div>
-          <div class="process-step-title" data-i18n="p2.t">Operational Optimization</div>
-          <div class="process-step-desc" data-i18n="p2.d">Identificamos ineficiencias y optimizamos procesos clave</div>
-        </div>
-        <div class="process-step gsap-hidden">
-          <div class="process-num">03</div>
-          <div class="process-step-title" data-i18n="p3.t">Increase Attractiveness</div>
-          <div class="process-step-desc" data-i18n="p3.d">Potenciamos la propuesta de valor y posicionamiento de marca</div>
-        </div>
-        <div class="process-step gsap-hidden">
-          <div class="process-num">04</div>
-          <div class="process-step-title" data-i18n="p4.t">Content Creation</div>
-          <div class="process-step-desc" data-i18n="p4.d">Desarrollamos contenido estratégico que conecta y convierte</div>
+        <div class="alcance-map gsap-hidden">
+          <div class="alcance-country alcance-hub">
+            <div class="flag">🇵🇦</div>
+            <div class="name">Panamá</div>
+            <div class="hub-label">Hub Central</div>
+          </div>
+          <div class="alcance-country"><div class="flag">🇺🇸</div><div class="name">USA</div></div>
+          <div class="alcance-country"><div class="flag">🇲🇽</div><div class="name">México</div></div>
+          <div class="alcance-country"><div class="flag">🇨🇷</div><div class="name">Costa Rica</div></div>
+          <div class="alcance-country"><div class="flag">🇨🇴</div><div class="name">Colombia</div></div>
+          <div class="alcance-country"><div class="flag">🇩🇴</div><div class="name">Rep. Dominicana</div></div>
+          <div class="alcance-country"><div class="flag">🇵🇪</div><div class="name">Perú</div></div>
+          <div class="alcance-country"><div class="flag">🇧🇷</div><div class="name">Brasil</div></div>
+          <div class="alcance-country"><div class="flag">🇦🇷</div><div class="name">Argentina</div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- INDUSTRIES -->
+  <!-- SECTORES -->
   <section id="industries">
     <div class="section-inner">
       <div style="text-align:center;max-width:600px;margin:0 auto">
-        <div class="section-label gsap-hidden" style="justify-content:center" data-i18n="ind.label">Sectores que Atendemos</div>
+        <div class="section-label gsap-hidden" style="justify-content:center" data-i18n="ind.label">Sectores</div>
         <h2 class="section-title gsap-hidden" data-i18n="ind.title">
-          Experiencia en los mercados<br/><em data-i18n="ind.title2">que más importan</em>
+          Experiencia en los sectores<br/><em data-i18n="ind.title2">que más importan</em>
         </h2>
       </div>
       <div class="industries-grid">
-        <div class="industry-card gsap-hidden"><div class="industry-icon">🌴</div><div class="industry-name" data-i18n="ind.n1">Destinations &amp; Tourism</div><div class="industry-desc" data-i18n="ind.d1">Promoción y desarrollo de destinos turísticos en LATAM</div></div>
-        <div class="industry-card gsap-hidden"><div class="industry-icon">🎪</div><div class="industry-name" data-i18n="ind.n2">MICE &amp; Events</div><div class="industry-desc" data-i18n="ind.d2">Meetings, Incentives, Conferences &amp; Exhibitions</div></div>
-        <div class="industry-card gsap-hidden"><div class="industry-icon">🏨</div><div class="industry-name" data-i18n="ind.n3">Hospitality</div><div class="industry-desc" data-i18n="ind.d3">Hoteles, resorts y servicios de hospitalidad premium</div></div>
-        <div class="industry-card gsap-hidden"><div class="industry-icon">✈️</div><div class="industry-name" data-i18n="ind.n4">Airlines &amp; Transport</div><div class="industry-desc" data-i18n="ind.d4">Aerolíneas, transporte y conectividad regional</div></div>
-        <div class="industry-card gsap-hidden"><div class="industry-icon">🤝</div><div class="industry-name" data-i18n="ind.n5">Corporate &amp; B2B</div><div class="industry-desc" data-i18n="ind.d5">Alianzas estratégicas y desarrollo comercial empresarial</div></div>
-        <div class="industry-card gsap-hidden"><div class="industry-icon">🏛️</div><div class="industry-name" data-i18n="ind.n6">Government &amp; Public</div><div class="industry-desc" data-i18n="ind.d6">Proyectos con entidades gubernamentales de turismo</div></div>
-        <div class="industry-card gsap-hidden"><div class="industry-icon">🎓</div><div class="industry-name" data-i18n="ind.n7">Education &amp; Training</div><div class="industry-desc" data-i18n="ind.d7">Capacitación y formación para la industria turística</div></div>
-        <div class="industry-card gsap-hidden"><div class="industry-icon">💡</div><div class="industry-name" data-i18n="ind.n8">Technology &amp; Innovation</div><div class="industry-desc" data-i18n="ind.d8">Soluciones tech para modernizar la experiencia turística</div></div>
+        <div class="industry-card gsap-hidden"><div class="industry-icon">🏛️</div><div class="industry-name" data-i18n="ind.n1">Asociaciones</div><div class="industry-desc" data-i18n="ind.d1">Congresos de asociaciones médicas, científicas, gremiales y profesionales</div></div>
+        <div class="industry-card gsap-hidden"><div class="industry-icon">🏢</div><div class="industry-name" data-i18n="ind.n2">Corporativos</div><div class="industry-desc" data-i18n="ind.d2">Convenciones empresariales, eventos corporativos y encuentros de negocio</div></div>
+        <div class="industry-card gsap-hidden"><div class="industry-icon">⚖️</div><div class="industry-name" data-i18n="ind.n3">Gobierno</div><div class="industry-desc" data-i18n="ind.d3">Cumbres, foros gubernamentales y eventos oficiales con protocolo</div></div>
+        <div class="industry-card gsap-hidden"><div class="industry-icon">🌍</div><div class="industry-name" data-i18n="ind.n4">ONGs</div><div class="industry-desc" data-i18n="ind.d4">Congresos de organizaciones sin fines de lucro y organismos internacionales</div></div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTÁCTENOS -->
   <section id="contact">
     <div class="section-inner">
       <div class="contact-grid">
         <div class="contact-info">
-          <div class="section-label gsap-hidden" data-i18n="contact.label">Hablemos</div>
+          <div class="section-label gsap-hidden" data-i18n="contact.label">Contáctenos</div>
           <h2 class="section-title gsap-hidden">
-            <span data-i18n="contact.h1">¿Listo para</span> <em data-i18n="contact.h2">crecer</em><br/>
-            <span data-i18n="contact.h3">junto a nosotros?</span>
+            <span data-i18n="contact.h1">¿Listo para organizar</span><br/>
+            <em data-i18n="contact.h2">tu próximo congreso?</em>
           </h2>
           <p class="gsap-hidden" data-i18n="contact.desc">
             Nuestro equipo está listo para escuchar tu proyecto y diseñar juntos una
             estrategia a medida. Somos tus socios de confianza en LATAM.
           </p>
           <div class="contact-items gsap-hidden">
-            <div class="contact-item">
-              <div class="contact-item-icon">🌐</div>
-              <div class="contact-item-text"><strong>Web</strong><span>www.gbdlatam.com</span></div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon">📍</div>
-              <div class="contact-item-text"><strong data-i18n="contact.loc">Ubicación</strong><span>Ciudad de Panamá, Panamá · LATAM</span></div>
-            </div>
-            <div class="contact-item">
+            <a href="mailto:info@gbdpanama.com" class="contact-item">
+              <div class="contact-item-icon">✉️</div>
+              <div class="contact-item-text"><strong data-i18n="contact.correo">Correo</strong><span>info@gbdpanama.com</span></div>
+            </a>
+            <a href="https://www.linkedin.com/company/growth-business-developers" target="_blank" rel="noopener" class="contact-item">
+              <div class="contact-item-icon">💼</div>
+              <div class="contact-item-text"><strong>LinkedIn</strong><span>Growth Business Developers</span></div>
+            </a>
+            <a href="tel:+50765774280" class="contact-item">
+              <div class="contact-item-icon">📞</div>
+              <div class="contact-item-text"><strong data-i18n="contact.tel">Teléfono</strong><span>+507 6577-4280</span></div>
+            </a>
+            <a href="https://www.instagram.com/gbdbiz.latam" target="_blank" rel="noopener" class="contact-item">
               <div class="contact-item-icon">📸</div>
               <div class="contact-item-text"><strong>Instagram</strong><span>@gbdbiz.latam</span></div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon">💼</div>
-              <div class="contact-item-text"><strong>LinkedIn</strong><span>Growth Business Developers®</span></div>
-            </div>
+            </a>
           </div>
         </div>
         <div class="contact-form gsap-hidden">
-          <h3 data-i18n="form.title">Envíanos un mensaje</h3>
+          <h3 data-i18n="form.title">Agende una reunión</h3>
           <div class="form-row">
             <div class="form-group">
               <label data-i18n="form.name">Nombre</label>
               <input type="text" data-i18n-placeholder="form.namePh" placeholder="Tu nombre" />
             </div>
             <div class="form-group">
-              <label data-i18n="form.company">Empresa</label>
-              <input type="text" data-i18n-placeholder="form.companyPh" placeholder="Tu empresa" />
+              <label data-i18n="form.company">Empresa / Organización</label>
+              <input type="text" data-i18n-placeholder="form.companyPh" placeholder="Tu empresa u organización" />
             </div>
           </div>
           <div class="form-group">
@@ -867,16 +863,19 @@
             <label data-i18n="form.service">Servicio de interés</label>
             <select>
               <option value="" disabled selected data-i18n="form.select">Selecciona un servicio</option>
-              <option>Marketing Company</option>
-              <option>Business Development</option>
-              <option>Innovation Center</option>
-              <option data-i18n="form.opt4">Bot Lena / IA</option>
-              <option data-i18n="form.opt5">Otro</option>
+              <option data-i18n="s1.name">Estrategia y Diseño</option>
+              <option data-i18n="s2.name">Gestión de Destinos</option>
+              <option data-i18n="s3.name">Operación de Congresos</option>
+              <option data-i18n="s4.name">Programa Científico</option>
+              <option data-i18n="s5.name">Patrocinios y Exposición</option>
+              <option data-i18n="s6.name">Experiencia del Delegado</option>
+              <option data-i18n="s7.name">Producción Creativa</option>
+              <option data-i18n="form.opt8">Otro</option>
             </select>
           </div>
           <div class="form-group">
             <label data-i18n="form.msg">Mensaje</label>
-            <textarea data-i18n-placeholder="form.msgPh" placeholder="Cuéntanos sobre tu proyecto…"></textarea>
+            <textarea data-i18n-placeholder="form.msgPh" placeholder="Cuéntanos sobre tu congreso…"></textarea>
           </div>
           <button class="btn-form" type="button" data-i18n="form.send">Enviar Mensaje →</button>
         </div>
@@ -893,40 +892,41 @@
             <img src="logo.png" alt="Growth Business Developers" />
           </a>
           <p data-i18n="footer.desc">
-            Desarrolladores de negocios, guiados por la pasión de marcar la diferencia.
-            Tus socios estratégicos en la industria turística de LATAM.
+            Lideramos congresos. Conectamos destinos. Creamos oportunidades.
+            Tus socios estratégicos en LATAM.
           </p>
           <div class="footer-social">
             <a href="https://www.instagram.com/gbdbiz.latam" target="_blank" rel="noopener" title="Instagram">📸</a>
-            <a href="https://gbdpanama.com" target="_blank" rel="noopener" title="LinkedIn">💼</a>
-            <a href="#contact" title="Email">✉️</a>
+            <a href="https://www.linkedin.com/company/growth-business-developers" target="_blank" rel="noopener" title="LinkedIn">💼</a>
+            <a href="mailto:info@gbdpanama.com" title="Email">✉️</a>
+            <a href="tel:+50765774280" title="Teléfono">📞</a>
           </div>
         </div>
         <div class="footer-col">
           <h4 data-i18n="footer.col1">Servicios</h4>
           <ul>
-            <li><a href="#services">Marketing Company</a></li>
-            <li><a href="#services">Business Development</a></li>
-            <li><a href="#services">Innovation Center</a></li>
-            <li><a href="#lena">Bot Lena AI</a></li>
+            <li><a href="#services" data-i18n="s1.name">Estrategia y Diseño</a></li>
+            <li><a href="#services" data-i18n="s2.name">Gestión de Destinos</a></li>
+            <li><a href="#services" data-i18n="s3.name">Operación de Congresos</a></li>
+            <li><a href="#services" data-i18n="s5.name">Patrocinios y Exposición</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4 data-i18n="footer.col2">Empresa</h4>
           <ul>
-            <li><a href="#about" data-i18n="nav.about">Nosotros</a></li>
-            <li><a href="#process" data-i18n="nav.process">Proceso</a></li>
-            <li><a href="#industries" data-i18n="ind.label">Sectores</a></li>
-            <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
+            <li><a href="#about" data-i18n="nav.about">Quiénes Somos</a></li>
+            <li><a href="#alcance" data-i18n="nav.alcance">Alcance Regional</a></li>
+            <li><a href="#industries" data-i18n="nav.sectors">Sectores</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contáctenos</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4 data-i18n="footer.col3">Industrias</h4>
+          <h4 data-i18n="footer.col3">Contacto</h4>
           <ul>
-            <li><a href="#industries">Destinations &amp; Tourism</a></li>
-            <li><a href="#industries">MICE &amp; Events</a></li>
-            <li><a href="#industries">Hospitality</a></li>
-            <li><a href="#industries">Corporate &amp; B2B</a></li>
+            <li><a href="mailto:info@gbdpanama.com">info@gbdpanama.com</a></li>
+            <li><a href="tel:+50765774280">+507 6577-4280</a></li>
+            <li><a href="https://www.instagram.com/gbdbiz.latam" target="_blank" rel="noopener">@gbdbiz.latam</a></li>
+            <li><a href="https://www.linkedin.com/company/growth-business-developers" target="_blank" rel="noopener">LinkedIn</a></li>
           </ul>
         </div>
       </div>
@@ -943,178 +943,180 @@
   ════════════════════════════════════════ */
   const translations = {
     es: {
-      "nav.about": "Nosotros",
-      "nav.services": "Servicios",
-      "nav.lena": "Bot Lena",
-      "nav.process": "Proceso",
-      "nav.contact": "Contáctanos",
-      "hero.label": "Expertos en la industria turística",
-      "hero.title1": "Where destinations",
-      "hero.title2": "shine",
-      "hero.title3": "& events",
-      "hero.title4": "thrive.",
-      "hero.desc": "Desarrolladores de negocios guiados por la pasión de marcar la diferencia. Impulsamos el crecimiento estratégico, sostenible e innovador en LATAM.",
-      "hero.cta1": "Nuestros Servicios",
-      "hero.cta2": "Hablemos",
-      "hero.stat1": "Años de experiencia en la industria",
-      "hero.stat2": "Pilares de servicio especializados",
-      "hero.stat3": "Presencia y alcance regional",
-      "hero.stat4": "Soluciones integrales de negocio",
-      "hero.pillar1": "Marketing Company",
-      "hero.pillar2": "Business Development",
-      "hero.pillar3": "Innovation Center",
+      "nav.about": "Quiénes Somos",
+      "nav.services": "¿Qué Hacemos?",
+      "nav.alcance": "Alcance",
+      "nav.sectors": "Sectores",
+      "nav.contact": "Contáctenos",
+      "hero.label": "Lideramos congresos · Conectamos destinos · Creamos oportunidades",
+      "hero.title1": "Organizamos congresos",
+      "hero.title2": "que generan impacto.",
+      "hero.desc": "Planificamos, gestionamos y ejecutamos congresos nacionales e internacionales con una visión estratégica, excelencia operativa y una sólida red de aliados en toda la región.",
+      "hero.cta1": "Conozca nuestros servicios",
+      "hero.cta2": "Agende una reunión",
+      "hero.stat1": "Años liderando congresos en la región",
+      "hero.stat2": "Países con alcance en las Américas",
+      "hero.stat3": "Presencia y red de aliados regional",
+      "hero.stat4": "Gestión integral de congresos",
+      "hero.pillar1": "Estrategia",
+      "hero.pillar2": "Destinos & Sedes",
+      "hero.pillar3": "Operación",
       "about.label": "Quiénes Somos",
-      "about.title1": "Nuestra inspiración viene de",
-      "about.title2": "desarrollar negocios",
-      "about.title3": "en todas partes.",
-      "about.desc": "Somos especialistas en el desarrollo de negocios dentro de la industria turística, con un enfoque estratégico que impulsa el crecimiento sostenible y la innovación.",
-      "about.p2": "Nuestra amplia experiencia trabajando con el sector privado y público nos permite ofrecer soluciones dinámicas, adaptadas a las necesidades de cada cliente y orientadas a maximizar el potencial de sus proyectos.",
-      "about.quote": '"Driven by the desire to stand out and go beyond the ordinary."',
-      "about.f1": "Sector privado & público",
-      "about.f2": "Estrategia basada en datos",
-      "about.f3": "Industria turística LATAM",
-      "about.f4": "Innovación tecnológica",
-      "about.f5": "Responsabilidad comunitaria",
-      "about.f6": "Programas de fidelización",
-      "services.label": "Lo Que Hacemos",
-      "services.title1": "Tres pilares para",
-      "services.title2": "impulsar tu negocio",
-      "services.desc": "Ofrecemos soluciones integrales que abarcan desde la estrategia de marca hasta la implementación de tecnología de punta en el sector turístico y de eventos.",
-      "s1.name": "Marketing Company", "s1.sub": "Marca & Comunicación",
-      "s1.i1": "Brand Positioning Strategy", "s1.i2": "Public Relations & Communications",
-      "s1.i3": "Targeted Advertising Campaigns", "s1.i4": "Data Diagnostic & Analytics",
-      "s1.i5": "Consultancy & Strategic Planning",
-      "s2.name": "Business Development", "s2.sub": "Crecimiento & Rentabilidad",
-      "s2.i1": "Captadores de oportunidades de negocio", "s2.i2": "Estrategia para incrementar ingresos",
-      "s2.i3": "Optimización de egresos", "s2.i4": "Programas de fidelización de clientes",
-      "s2.i5": "Responsabilidad comunitaria",
-      "s3.name": "Innovation Center", "s3.sub": "Tecnología & Experiencia",
-      "s3.i1": "Badges digitales · Apple Wallet", "s3.i2": "Traducción en línea en tiempo real",
-      "s3.i3": "Hologramas para expositores", "s3.i4": "Avatares interactivos",
-      "s3.i5": "Salas mudas & Votación interactiva",
-      "lena.label": "Innovación con IA",
-      "lena.title": "AI Influencer · Bleisure Experience",
-      "lena.desc": "Diseñada para transformar la forma en que los negocios y el turismo convergen, Lena es nuestra inteligencia artificial especializada en experiencias Bleisure.",
-      "lena.r1": "Business Innovator", "lena.r2": "Opportunities Explorer", "lena.r3": "Travel Ambassador",
-      "lena.h1": "Conoce a", "lena.h2": "nuestra AI Influencer",
-      "lena.p1": "Bot Lena representa la convergencia perfecta entre los negocios y el placer — el concepto <strong>Bleisure</strong>. Diseñada para potenciar experiencias únicas en el sector turístico y de reuniones.",
-      "lena.p2": "Como embajadora digital de Growth, Lena explora oportunidades, identifica tendencias y conecta a empresas con destinos y experiencias que transforman sus estrategias de negocio.",
-      "process.label": "Cómo Trabajamos", "process.h1": "Nuestra ruta", "process.h2": "hacia el éxito",
-      "process.desc": "Seguimos un proceso probado que nos permite identificar oportunidades únicas y ejecutar estrategias de alto impacto para cada cliente.",
-      "p1.t": "Corporate Strategy", "p1.d": "Análisis profundo del negocio y definición de objetivos estratégicos",
-      "p2.t": "Operational Optimization", "p2.d": "Identificamos ineficiencias y optimizamos procesos clave",
-      "p3.t": "Increase Attractiveness", "p3.d": "Potenciamos la propuesta de valor y posicionamiento de marca",
-      "p4.t": "Content Creation", "p4.d": "Desarrollamos contenido estratégico que conecta y convierte",
-      "ind.label": "Sectores que Atendemos", "ind.title": "Experiencia en los mercados", "ind.title2": "que más importan",
-      "ind.n1": "Destinations & Tourism", "ind.d1": "Promoción y desarrollo de destinos turísticos en LATAM",
-      "ind.n2": "MICE & Events", "ind.d2": "Meetings, Incentives, Conferences & Exhibitions",
-      "ind.n3": "Hospitality", "ind.d3": "Hoteles, resorts y servicios de hospitalidad premium",
-      "ind.n4": "Airlines & Transport", "ind.d4": "Aerolíneas, transporte y conectividad regional",
-      "ind.n5": "Corporate & B2B", "ind.d5": "Alianzas estratégicas y desarrollo comercial empresarial",
-      "ind.n6": "Government & Public", "ind.d6": "Proyectos con entidades gubernamentales de turismo",
-      "ind.n7": "Education & Training", "ind.d7": "Capacitación y formación para la industria turística",
-      "ind.n8": "Technology & Innovation", "ind.d8": "Soluciones tech para modernizar la experiencia turística",
-      "contact.label": "Hablemos", "contact.h1": "¿Listo para", "contact.h2": "crecer", "contact.h3": "junto a nosotros?",
+      "about.title1": "Somos tu aliado",
+      "about.title2": "para congresos.",
+      "about.desc": "No organizamos únicamente eventos. Lideramos la planificación, negociación, producción y ejecución de congresos nacionales e internacionales, representando siempre los intereses de nuestros clientes.",
+      "about.p2": "Desde la selección del destino hasta el último participante que abandona el evento, garantizamos una experiencia impecable con visión estratégica y excelencia operativa.",
+      "about.quote": '"Desde la selección del destino hasta el último participante que abandona el evento."',
+      "about.f1": "Planificación estratégica",
+      "about.f2": "Excelencia operativa",
+      "about.f3": "Red de aliados regional",
+      "about.f4": "Representación del cliente",
+      "about.f5": "Congresos nacionales e internacionales",
+      "about.f6": "Gestión integral 360°",
+      "team.label": "Nuestro Equipo",
+      "team.title": "Profesionales comprometidos<br/>con <em>tu congreso</em>",
+      "team.n1": "Nombre", "team.r1": "Dirección General",
+      "team.n2": "Nombre", "team.r2": "Operaciones",
+      "team.n3": "Nombre", "team.r3": "Comercial",
+      "team.n4": "Nombre", "team.r4": "Producción",
+      "services.label": "¿Qué Hacemos?",
+      "services.title1": "Servicios integrales",
+      "services.title2": "para tu congreso",
+      "services.desc": "Cubrimos cada etapa de tu congreso con 7 pilares de servicio especializados, desde la postulación de candidatura hasta el cierre y memorias.",
+      "s1.name": "Estrategia y Diseño", "s1.sub": "De la postulación al cierre",
+      "s1.i1": "Diseño de candidatura", "s1.i2": "Estrategia del congreso",
+      "s1.i3": "Planificación presupuestaria", "s1.i4": "Planos de la sala de exposiciones",
+      "s1.i5": "Gestión de riesgos", "s1.i6": "Apoyo al comité organizador",
+      "s2.name": "Gestión de Destinos", "s2.sub": "La sede correcta",
+      "s2.i1": "Búsqueda de sede (hoteles, centro de convenciones)", "s2.i2": "Revisión de propuestas",
+      "s2.i3": "Visitas de inspección en destino", "s2.i4": "Conexión con bureaus de convenciones",
+      "s2.i5": "Manejo de incentivos por destino",
+      "s3.name": "Operación de Congresos", "s3.sub": "Logística integral",
+      "s3.i1": "Gestión de tiquetes aéreos", "s3.i2": "Inscripciones y alojamientos",
+      "s3.i3": "Transportes y asistencia en aeropuerto", "s3.i4": "Señalizaciones y personal de protocolo",
+      "s3.i5": "Interpretación simultánea", "s3.i6": "Producción audiovisual y servicios de A&B",
+      "s4.name": "Programa Científico", "s4.sub": "Contenido académico",
+      "s4.i1": "Gestión de resúmenes", "s4.i2": "Coordinación de ponentes",
+      "s4.i3": "Plataforma científica", "s4.i4": "Actas y certificados",
+      "s5.name": "Patrocinios y Exposición", "s5.sub": "Oportunidades comerciales",
+      "s5.i1": "Búsqueda de patrocinios", "s5.i2": "Gestión de expositores",
+      "s5.i3": "Oportunidades comerciales",
+      "s6.name": "Experiencia del Delegado", "s6.sub": "Momentos memorables",
+      "s6.i1": "Eventos sociales y cenas de gala", "s6.i2": "Tours gastronómicos y culturales (grupales y VIPs)",
+      "s6.i3": "Actividades de relacionamiento y Team building", "s6.i4": "Salas de bienestar y descanso en sede",
+      "s6.i5": "Reservación de restaurantes",
+      "s7.name": "Producción Creativa", "s7.sub": "Comunicación on & off",
+      "s7.i1": "Fotografía y video", "s7.i2": "Branding y diseño", "s7.i3": "Material gráfico e impresión",
+      "alcance.label": "Alcance Regional",
+      "alcance.title1": "Conectamos destinos",
+      "alcance.title2": "en toda la región",
+      "alcance.desc": "Operamos con una sólida red de alianzas estratégicas, bureaus de convenciones y proveedores de primer nivel en los principales destinos de las Américas.",
+      "ind.label": "Sectores", "ind.title": "Experiencia en los sectores", "ind.title2": "que más importan",
+      "ind.n1": "Asociaciones", "ind.d1": "Congresos de asociaciones médicas, científicas, gremiales y profesionales",
+      "ind.n2": "Corporativos", "ind.d2": "Convenciones empresariales, eventos corporativos y encuentros de negocio",
+      "ind.n3": "Gobierno", "ind.d3": "Cumbres, foros gubernamentales y eventos oficiales con protocolo",
+      "ind.n4": "ONGs", "ind.d4": "Congresos de organizaciones sin fines de lucro y organismos internacionales",
+      "contact.label": "Contáctenos", "contact.h1": "¿Listo para organizar", "contact.h2": "tu próximo congreso?",
       "contact.desc": "Nuestro equipo está listo para escuchar tu proyecto y diseñar juntos una estrategia a medida. Somos tus socios de confianza en LATAM.",
-      "contact.loc": "Ubicación",
-      "form.title": "Envíanos un mensaje",
+      "contact.correo": "Correo", "contact.tel": "Teléfono",
+      "form.title": "Agende una reunión",
       "form.name": "Nombre", "form.namePh": "Tu nombre",
-      "form.company": "Empresa", "form.companyPh": "Tu empresa",
+      "form.company": "Empresa / Organización", "form.companyPh": "Tu empresa u organización",
       "form.email": "Email", "form.service": "Servicio de interés",
-      "form.select": "Selecciona un servicio",
-      "form.opt4": "Bot Lena / IA", "form.opt5": "Otro",
-      "form.msg": "Mensaje", "form.msgPh": "Cuéntanos sobre tu proyecto…",
+      "form.select": "Selecciona un servicio", "form.opt8": "Otro",
+      "form.msg": "Mensaje", "form.msgPh": "Cuéntanos sobre tu congreso…",
       "form.send": "Enviar Mensaje →",
-      "footer.desc": "Desarrolladores de negocios, guiados por la pasión de marcar la diferencia. Tus socios estratégicos en la industria turística de LATAM.",
-      "footer.col1": "Servicios", "footer.col2": "Empresa", "footer.col3": "Industrias",
+      "footer.desc": "Lideramos congresos. Conectamos destinos. Creamos oportunidades. Tus socios estratégicos en LATAM.",
+      "footer.col1": "Servicios", "footer.col2": "Empresa", "footer.col3": "Contacto",
       "footer.rights": "Todos los derechos reservados.",
       "footer.made": "Hecho con ❤️ para"
     },
     en: {
       "nav.about": "About",
-      "nav.services": "Services",
-      "nav.lena": "Bot Lena",
-      "nav.process": "Process",
+      "nav.services": "What We Do",
+      "nav.alcance": "Reach",
+      "nav.sectors": "Sectors",
       "nav.contact": "Contact Us",
-      "hero.label": "Experts in the tourism industry",
-      "hero.title1": "Where destinations",
-      "hero.title2": "shine",
-      "hero.title3": "& events",
-      "hero.title4": "thrive.",
-      "hero.desc": "Business developers driven by the passion to make a difference. We drive strategic, sustainable, and innovative growth across LATAM.",
-      "hero.cta1": "Our Services",
-      "hero.cta2": "Let's Talk",
-      "hero.stat1": "Years of industry experience",
-      "hero.stat2": "Specialized service pillars",
-      "hero.stat3": "Regional presence and reach",
-      "hero.stat4": "Comprehensive business solutions",
-      "hero.pillar1": "Marketing Company",
-      "hero.pillar2": "Business Development",
-      "hero.pillar3": "Innovation Center",
+      "hero.label": "We lead congresses · Connect destinations · Create opportunities",
+      "hero.title1": "We organize congresses",
+      "hero.title2": "that generate impact.",
+      "hero.desc": "We plan, manage, and execute national and international congresses with strategic vision, operational excellence, and a solid network of allies across the region.",
+      "hero.cta1": "Explore our services",
+      "hero.cta2": "Schedule a meeting",
+      "hero.stat1": "Years leading congresses in the region",
+      "hero.stat2": "Countries with reach across the Americas",
+      "hero.stat3": "Regional presence and allied network",
+      "hero.stat4": "Comprehensive congress management",
+      "hero.pillar1": "Strategy",
+      "hero.pillar2": "Destinations & Venues",
+      "hero.pillar3": "Operations",
       "about.label": "Who We Are",
-      "about.title1": "Our inspiration comes from",
-      "about.title2": "developing businesses",
-      "about.title3": "everywhere.",
-      "about.desc": "We are specialists in business development within the tourism industry, with a strategic approach that drives sustainable growth and innovation.",
-      "about.p2": "Our extensive experience working with the private and public sectors allows us to offer dynamic solutions, tailored to each client's needs and aimed at maximizing the potential of their projects.",
-      "about.quote": '"Driven by the desire to stand out and go beyond the ordinary."',
-      "about.f1": "Private & public sector",
-      "about.f2": "Data-driven strategy",
-      "about.f3": "LATAM tourism industry",
-      "about.f4": "Technological innovation",
-      "about.f5": "Community responsibility",
-      "about.f6": "Loyalty programs",
+      "about.title1": "We are your trusted ally",
+      "about.title2": "for congresses.",
+      "about.desc": "We don't just organize events. We lead the planning, negotiation, production, and execution of national and international congresses, always representing our clients' interests.",
+      "about.p2": "From destination selection to the last participant leaving the event, we guarantee an impeccable experience with strategic vision and operational excellence.",
+      "about.quote": '"From destination selection to the last participant leaving the event."',
+      "about.f1": "Strategic planning",
+      "about.f2": "Operational excellence",
+      "about.f3": "Regional allied network",
+      "about.f4": "Client representation",
+      "about.f5": "National & international congresses",
+      "about.f6": "360° comprehensive management",
+      "team.label": "Our Team",
+      "team.title": "Professionals committed<br/>to <em>your congress</em>",
+      "team.n1": "Name", "team.r1": "General Management",
+      "team.n2": "Name", "team.r2": "Operations",
+      "team.n3": "Name", "team.r3": "Commercial",
+      "team.n4": "Name", "team.r4": "Production",
       "services.label": "What We Do",
-      "services.title1": "Three pillars to",
-      "services.title2": "boost your business",
-      "services.desc": "We offer comprehensive solutions ranging from brand strategy to the implementation of cutting-edge technology in the tourism and events sector.",
-      "s1.name": "Marketing Company", "s1.sub": "Brand & Communication",
-      "s1.i1": "Brand Positioning Strategy", "s1.i2": "Public Relations & Communications",
-      "s1.i3": "Targeted Advertising Campaigns", "s1.i4": "Data Diagnostic & Analytics",
-      "s1.i5": "Consultancy & Strategic Planning",
-      "s2.name": "Business Development", "s2.sub": "Growth & Profitability",
-      "s2.i1": "Business opportunity capture", "s2.i2": "Revenue growth strategy",
-      "s2.i3": "Expense optimization", "s2.i4": "Customer loyalty programs",
-      "s2.i5": "Community responsibility",
-      "s3.name": "Innovation Center", "s3.sub": "Technology & Experience",
-      "s3.i1": "Digital badges · Apple Wallet", "s3.i2": "Real-time online translation",
-      "s3.i3": "Holograms for exhibitors", "s3.i4": "Interactive avatars",
-      "s3.i5": "Silent rooms & Interactive voting",
-      "lena.label": "AI Innovation",
-      "lena.title": "AI Influencer · Bleisure Experience",
-      "lena.desc": "Designed to transform the way business and tourism converge, Lena is our artificial intelligence specialized in Bleisure experiences.",
-      "lena.r1": "Business Innovator", "lena.r2": "Opportunities Explorer", "lena.r3": "Travel Ambassador",
-      "lena.h1": "Meet", "lena.h2": "our AI Influencer",
-      "lena.p1": "Bot Lena represents the perfect convergence of business and leisure — the <strong>Bleisure</strong> concept. Designed to enhance unique experiences in the tourism and meetings sector.",
-      "lena.p2": "As Growth's digital ambassador, Lena explores opportunities, identifies trends, and connects companies with destinations and experiences that transform their business strategies.",
-      "process.label": "How We Work", "process.h1": "Our route", "process.h2": "to success",
-      "process.desc": "We follow a proven process that allows us to identify unique opportunities and execute high-impact strategies for each client.",
-      "p1.t": "Corporate Strategy", "p1.d": "In-depth business analysis and definition of strategic objectives",
-      "p2.t": "Operational Optimization", "p2.d": "We identify inefficiencies and optimize key processes",
-      "p3.t": "Increase Attractiveness", "p3.d": "We enhance value proposition and brand positioning",
-      "p4.t": "Content Creation", "p4.d": "We develop strategic content that connects and converts",
-      "ind.label": "Sectors We Serve", "ind.title": "Experience in the markets", "ind.title2": "that matter most",
-      "ind.n1": "Destinations & Tourism", "ind.d1": "Promotion and development of tourist destinations in LATAM",
-      "ind.n2": "MICE & Events", "ind.d2": "Meetings, Incentives, Conferences & Exhibitions",
-      "ind.n3": "Hospitality", "ind.d3": "Hotels, resorts and premium hospitality services",
-      "ind.n4": "Airlines & Transport", "ind.d4": "Airlines, transport and regional connectivity",
-      "ind.n5": "Corporate & B2B", "ind.d5": "Strategic alliances and commercial business development",
-      "ind.n6": "Government & Public", "ind.d6": "Projects with government tourism entities",
-      "ind.n7": "Education & Training", "ind.d7": "Training and education for the tourism industry",
-      "ind.n8": "Technology & Innovation", "ind.d8": "Tech solutions to modernize the tourism experience",
-      "contact.label": "Let's Talk", "contact.h1": "Ready to", "contact.h2": "grow", "contact.h3": "with us?",
+      "services.title1": "Comprehensive services",
+      "services.title2": "for your congress",
+      "services.desc": "We cover every stage of your congress with 7 specialized service pillars, from candidacy submission to closing and final reports.",
+      "s1.name": "Strategy & Design", "s1.sub": "From bid to closing",
+      "s1.i1": "Candidacy design", "s1.i2": "Congress strategy",
+      "s1.i3": "Budget planning", "s1.i4": "Exhibition hall floor plans",
+      "s1.i5": "Risk management", "s1.i6": "Organizing committee support",
+      "s2.name": "Destination Management", "s2.sub": "The right venue",
+      "s2.i1": "Venue search (hotels, convention centers)", "s2.i2": "Proposal review",
+      "s2.i3": "On-site destination inspections", "s2.i4": "Convention bureau connections",
+      "s2.i5": "Destination incentive management",
+      "s3.name": "Congress Operations", "s3.sub": "End-to-end logistics",
+      "s3.i1": "Air ticket management", "s3.i2": "Registration & accommodations",
+      "s3.i3": "Transportation & airport assistance", "s3.i4": "Signage & protocol staff",
+      "s3.i5": "Simultaneous interpretation", "s3.i6": "AV production & F&B services",
+      "s4.name": "Scientific Program", "s4.sub": "Academic content",
+      "s4.i1": "Abstract management", "s4.i2": "Speaker coordination",
+      "s4.i3": "Scientific platform", "s4.i4": "Proceedings & certificates",
+      "s5.name": "Sponsorships & Exhibition", "s5.sub": "Commercial opportunities",
+      "s5.i1": "Sponsorship search", "s5.i2": "Exhibitor management",
+      "s5.i3": "Commercial opportunities",
+      "s6.name": "Delegate Experience", "s6.sub": "Memorable moments",
+      "s6.i1": "Social events & gala dinners", "s6.i2": "Culinary & cultural tours (group & VIP)",
+      "s6.i3": "Networking & team building activities", "s6.i4": "Wellness & rest lounges on-site",
+      "s6.i5": "Restaurant reservations",
+      "s7.name": "Creative Production", "s7.sub": "On & off communication",
+      "s7.i1": "Photography & video", "s7.i2": "Branding & design", "s7.i3": "Graphic material & printing",
+      "alcance.label": "Regional Reach",
+      "alcance.title1": "Connecting destinations",
+      "alcance.title2": "across the region",
+      "alcance.desc": "We operate with a solid network of strategic alliances, convention bureaus, and top-tier providers across the main destinations of the Americas.",
+      "ind.label": "Sectors", "ind.title": "Experience in the sectors", "ind.title2": "that matter most",
+      "ind.n1": "Associations", "ind.d1": "Congresses for medical, scientific, trade, and professional associations",
+      "ind.n2": "Corporates", "ind.d2": "Business conventions, corporate events, and business meetings",
+      "ind.n3": "Government", "ind.d3": "Summits, government forums, and official protocol events",
+      "ind.n4": "NGOs", "ind.d4": "Congresses for nonprofits and international organizations",
+      "contact.label": "Contact Us", "contact.h1": "Ready to organize", "contact.h2": "your next congress?",
       "contact.desc": "Our team is ready to listen to your project and design a tailored strategy together. We are your trusted partners in LATAM.",
-      "contact.loc": "Location",
-      "form.title": "Send us a message",
+      "contact.correo": "Email", "contact.tel": "Phone",
+      "form.title": "Schedule a meeting",
       "form.name": "Name", "form.namePh": "Your name",
-      "form.company": "Company", "form.companyPh": "Your company",
+      "form.company": "Company / Organization", "form.companyPh": "Your company or organization",
       "form.email": "Email", "form.service": "Service of interest",
-      "form.select": "Select a service",
-      "form.opt4": "Bot Lena / AI", "form.opt5": "Other",
-      "form.msg": "Message", "form.msgPh": "Tell us about your project…",
+      "form.select": "Select a service", "form.opt8": "Other",
+      "form.msg": "Message", "form.msgPh": "Tell us about your congress…",
       "form.send": "Send Message →",
-      "footer.desc": "Business developers driven by the passion to make a difference. Your strategic partners in the LATAM tourism industry.",
-      "footer.col1": "Services", "footer.col2": "Company", "footer.col3": "Industries",
+      "footer.desc": "We lead congresses. Connect destinations. Create opportunities. Your strategic partners in LATAM.",
+      "footer.col1": "Services", "footer.col2": "Company", "footer.col3": "Contact",
       "footer.rights": "All rights reserved.",
       "footer.made": "Made with ❤️ for"
     }
@@ -1233,8 +1235,6 @@
   ════════════════════════════════════════ */
   gsap.registerPlugin(ScrollTrigger);
 
-  // Hero entrance handled via CSS @keyframes (see stylesheet above)
-
   // Scroll-triggered animations for all .gsap-hidden elements
   gsap.utils.toArray('.gsap-hidden').forEach((el, i) => {
     gsap.fromTo(el,
@@ -1259,7 +1259,7 @@
       start: 'top 85%',
       onEnter: () => gsap.fromTo(card,
         { opacity: 0, y: 60, scale: 0.96 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.7, delay: i * 0.12, ease: 'power3.out' }
+        { opacity: 1, y: 0, scale: 1, duration: 0.7, delay: i * 0.08, ease: 'power3.out' }
       )
     });
   });
@@ -1272,18 +1272,6 @@
       onEnter: () => gsap.fromTo(card,
         { opacity: 0, y: 40 },
         { opacity: 1, y: 0, duration: 0.55, delay: i * 0.07, ease: 'power2.out' }
-      )
-    });
-  });
-
-  // Process steps stagger
-  gsap.utils.toArray('.process-step').forEach((step, i) => {
-    ScrollTrigger.create({
-      trigger: step,
-      start: 'top 85%',
-      onEnter: () => gsap.fromTo(step,
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.6, delay: i * 0.15, ease: 'power2.out' }
       )
     });
   });
@@ -1306,12 +1294,6 @@
     yPercent: -8,
     ease: 'none',
     scrollTrigger: { trigger: '#about', start: 'top bottom', end: 'bottom top', scrub: true }
-  });
-
-  // Lena card float on scroll
-  gsap.from('.lena-card', {
-    y: 30, opacity: 0, duration: 1, ease: 'power3.out',
-    scrollTrigger: { trigger: '#lena', start: 'top 75%', once: true }
   });
 
   /* ════════════════════════════════════════
