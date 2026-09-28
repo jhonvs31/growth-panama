@@ -1,3 +1,33 @@
 .DS_Store
 *.log
 node_modules/
+
+# Raw client media dumps — huge, only the curated photos used in index.html are tracked
+*.zip
+DRAFT NUEVA WEB.docx
+
+img/*
+!img/_Welcome
+!img/Exhibition_1
+!img/Exhibition_2
+!img/Sessions_1
+!img/Sessions_2
+
+img/_Welcome/*
+!img/_Welcome/INMR_2025_Welcome_44.jpg
+!img/_Welcome/INMR_2025_Welcome_57.jpg
+!img/_Welcome/INMR_2025_Welcome_75.jpg
+
+img/Exhibition_1/*
+!img/Exhibition_1/INMR_2025_Exhibition_1_80.jpg
+!img/Exhibition_1/INMR_2025_Exhibition_1_152.jpg
+
+img/Exhibition_2/*
+!img/Exhibition_2/INMR_2025_Exhibition_2_63.jpg
+
+img/Sessions_1/*
+!img/Sessions_1/INMR_2025_Sessions_1_206.jpg
+
+img/Sessions_2/*
+!img/Sessions_2/INMR_2025_Sessions_2_80.jpg
+!img/Sessions_2/INMR_2025_Sessions_2_142.jpg
