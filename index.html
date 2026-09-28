@@ -44,9 +44,11 @@
     nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.35); }
 
     /* Logo: dark PNG → white via invert on dark nav */
-    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    /* Logo centrado entre el borde izquierdo de la barra y el menú */
+    .nav-logo { flex: 1; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+    .nav-right { flex: none; }
     .nav-logo img {
-      height: 36px; width: auto;
+      height: 50px; width: auto;
       /* Make the dark logo white on dark backgrounds */
       filter: brightness(0) invert(1);
       transition: opacity 0.2s;
@@ -82,6 +84,14 @@
     }
     .lang-btn:hover { background: rgba(200,168,107,0.12); border-color: var(--gold); }
     .lang-btn span { font-size: 0.85rem; }
+    .lang-btn .ico { font-size: 0.95rem; }
+
+    /* ── ICONOS (SVG de línea) ── */
+    .ico {
+      width: 1em; height: 1em; display: inline-block; flex-shrink: 0;
+      fill: none; stroke: currentColor; stroke-width: 1.6;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
 
     .nav-cta {
       background: var(--gold); color: var(--navy);
@@ -172,6 +182,7 @@
       font-family: 'Playfair Display', serif; font-size: 2rem;
       font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 6px;
     }
+    .hero-stat-number.is-text { font-size: 1.55rem; line-height: 1.25; }
     .hero-stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.52); letter-spacing: 0.04em; line-height: 1.4; }
     .hero-pillars {
       background: rgba(255,255,255,0.04);
@@ -186,7 +197,7 @@
       text-align: center; gap: 6px;
     }
     .hero-pillar:last-child { border-right: none; }
-    .hero-pillar-icon { font-size: 1.5rem; margin-bottom: 2px; }
+    .hero-pillar-icon { font-size: 1.6rem; margin-bottom: 2px; color: var(--gold); display: flex; }
     .hero-pillar span { font-size: 0.7rem; color: rgba(255,255,255,0.58); font-weight: 500; }
 
     /* ── HERO VIDEO ── */
@@ -210,6 +221,7 @@
       transition: transform 0.25s;
     }
     .video-placeholder:hover .video-play-btn { transform: scale(1.08); }
+    .video-play-btn .ico { fill: currentColor; stroke-width: 1; }
     .video-placeholder-label { color: rgba(255,255,255,0.75); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.03em; }
     .video-tags {
       display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 12px;
@@ -264,22 +276,23 @@
 
     /* ── TEAM GRID ── */
     .team-section { margin-top: 80px; padding-top: 60px; border-top: 1px solid rgba(13,33,55,0.08); }
-    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+    /* flex (no grid) para que una última fila incompleta quede centrada */
+    .team-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 48px; }
     .team-card {
+      flex: 0 1 calc((100% - 80px) / 5);
       background: var(--white); border: 1px solid rgba(13,33,55,0.06);
-      border-radius: 16px; padding: 32px 20px; text-align: center;
+      border-radius: 16px; padding: 28px 16px; text-align: center;
       box-shadow: 0 4px 16px rgba(13,33,55,0.04);
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .team-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(13,33,55,0.1); }
     .team-avatar {
-      width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 16px;
-      background: linear-gradient(135deg, var(--navy), var(--navy2));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.6rem; border: 3px solid var(--cream2);
+      width: 132px; height: 132px; border-radius: 50%; margin: 0 auto 18px;
+      object-fit: cover; display: block;
+      border: 3px solid var(--white); box-shadow: 0 0 0 2px var(--gold);
     }
-    .team-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
-    .team-role { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+    .team-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .team-role { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); line-height: 1.4; }
 
     /* ── SERVICES ── */
     #services { background: var(--navy); }
@@ -310,7 +323,7 @@
     .service-icon {
       width: 56px; height: 56px; border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.6rem; margin-bottom: 24px;
+      font-size: 1.6rem; margin-bottom: 24px; color: var(--gold);
     }
     .service-icon.mk { background: rgba(200,168,107,0.12); }
     .service-icon.bd { background: rgba(42,92,63,0.2); }
@@ -346,30 +359,44 @@
     .alcance-hub .flag { font-size: 2.4rem; }
     .alcance-hub .name { color: var(--gold); font-size: 1rem; }
     .alcance-hub .hub-label { font-size: 0.68rem; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+    .alcance-hub .flag { display: flex; justify-content: center; gap: 10px; }
 
-    /* ── GALERÍA ── */
+    /* ── GALERÍA (carrusel de 4 bloques × 8 fotos) ── */
     #gallery { background: var(--cream); }
-    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 56px; }
+    .gallery-carousel { position: relative; margin-top: 56px; }
+    .gallery-viewport { overflow: hidden; }
+    .gallery-track { display: flex; transition: transform 0.8s cubic-bezier(.65,0,.35,1); }
+    .gallery-slide {
+      flex: 0 0 100%; min-width: 0;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    }
     .gallery-item {
-      position: relative; border-radius: 16px; overflow: hidden;
-      aspect-ratio: 4 / 3; box-shadow: 0 4px 16px rgba(13,33,55,0.06);
+      position: relative; border-radius: 12px; overflow: hidden; margin: 0;
+      aspect-ratio: 4 / 3; background: var(--cream2);
     }
     .gallery-item img {
       width: 100%; height: 100%; object-fit: cover; display: block;
       transition: transform 0.6s cubic-bezier(.16,1,.3,1);
     }
-    .gallery-item:hover img { transform: scale(1.07); }
-    .gallery-caption {
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(13,33,55,0) 42%, rgba(13,33,55,0.88) 100%);
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 16px 18px;
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+      width: 50px; height: 50px; border-radius: 50%; cursor: pointer;
+      background: var(--navy); color: var(--gold); font-size: 1.3rem;
+      border: 1px solid rgba(200,168,107,0.45);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(13,33,55,0.25);
+      transition: background 0.2s, color 0.2s, transform 0.2s;
     }
-    .gallery-tag {
-      font-size: 0.64rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 4px;
+    .gallery-arrow:hover { background: var(--gold); color: var(--navy); transform: translateY(-50%) scale(1.06); }
+    .gallery-arrow.prev { left: -25px; }
+    .gallery-arrow.next { right: -25px; }
+    .gallery-dots { display: flex; justify-content: center; gap: 10px; margin-top: 28px; }
+    .gallery-dots button {
+      width: 10px; height: 10px; border-radius: 5px; border: none; padding: 0; cursor: pointer;
+      background: rgba(13,33,55,0.2); transition: width 0.3s, background 0.3s;
     }
-    .gallery-cap { font-size: 0.84rem; color: var(--white); font-weight: 500; line-height: 1.3; }
+    .gallery-dots button.active { width: 30px; background: var(--gold); }
 
     /* ── INDUSTRIES / SECTORS ── */
     #industries { background: var(--navy2); }
@@ -384,28 +411,14 @@
       transition: background 0.28s, border-color 0.28s, transform 0.28s;
     }
     .industry-card:hover { background: rgba(200,168,107,0.08); border-color: rgba(200,168,107,0.3); transform: translateY(-5px); }
-    .industry-icon { font-size: 2.2rem; margin-bottom: 14px; }
+    .industry-icon {
+      width: 56px; height: 56px; border-radius: 14px; margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; color: var(--gold);
+      background: rgba(200,168,107,0.1); border: 1px solid rgba(200,168,107,0.22);
+    }
     .industry-name { font-weight: 600; font-size: 0.9rem; color: var(--white); margin-bottom: 8px; }
     .industry-desc { font-size: 0.78rem; color: rgba(255,255,255,0.42); line-height: 1.5; }
-
-    /* ── GALLERY ── */
-    #gallery { background: var(--cream2); }
-    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 56px; }
-    .gallery-item {
-      position: relative; border-radius: 16px; overflow: hidden;
-      aspect-ratio: 4 / 3; box-shadow: 0 4px 16px rgba(13,33,55,0.08);
-    }
-    .gallery-item img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      transition: transform 0.5s ease;
-    }
-    .gallery-item:hover img { transform: scale(1.06); }
-    .gallery-item figcaption {
-      position: absolute; left: 0; right: 0; bottom: 0;
-      padding: 34px 16px 14px;
-      background: linear-gradient(to top, rgba(13,33,55,0.85) 0%, rgba(13,33,55,0) 100%);
-      color: rgba(255,255,255,0.92); font-size: 0.78rem; font-weight: 500; line-height: 1.4;
-    }
 
     /* ── CONTACT ── */
     #contact { background: var(--cream); }
@@ -416,7 +429,8 @@
     .contact-item:hover { transform: translateX(4px); }
     .contact-item-icon {
       width: 44px; height: 44px; border-radius: 10px; background: var(--navy);
-      display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0;
+      color: var(--gold);
     }
     .contact-item-text strong { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-bottom: 2px; }
     .contact-item-text span { font-size: 0.9rem; color: var(--muted); }
@@ -478,6 +492,7 @@
     }
     .footer-bottom p, .footer-bottom span { font-size: 0.8rem; color: rgba(255,255,255,0.28); }
     .footer-bottom em { color: var(--gold); font-style: normal; }
+    .footer-bottom .ico { color: var(--gold); vertical-align: -2px; }
 
     /* ── MOBILE MENU ── */
     .mobile-menu {
@@ -514,13 +529,18 @@
       .about-badge { right: 12px; bottom: -20px; }
       .services-header { grid-template-columns: 1fr; gap: 24px; }
       .industries-grid { grid-template-columns: repeat(2, 1fr); }
-      .team-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-card { flex-basis: calc((100% - 40px) / 3); }
+      .gallery-slide { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .gallery-arrow.prev { left: 8px; }
+      .gallery-arrow.next { right: 8px; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
-    }
-    @media (max-width: 768px) {
+      /* Con 6 enlaces + logo grande, el menú pasa a hamburguesa desde tablet */
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
+      .nav-logo { justify-content: flex-start; }
+      .nav-logo img { height: 42px; }
+    }
+    @media (max-width: 768px) {
       .services-grid { grid-template-columns: 1fr; }
       .industries-grid { grid-template-columns: 1fr 1fr; }
       .form-row { grid-template-columns: 1fr; }
@@ -536,8 +556,12 @@
       .about-badge { padding: 18px 20px; right: 0; }
       .about-badge-num { font-size: 1.7rem; }
       .industries-grid { grid-template-columns: 1fr; }
-      .team-grid { grid-template-columns: 1fr 1fr; }
-      .gallery-grid { grid-template-columns: 1fr; }
+      .team-card { flex-basis: calc((100% - 20px) / 2); }
+      .team-avatar { width: 108px; height: 108px; }
+      .gallery-slide { gap: 8px; }
+      .gallery-item { border-radius: 8px; }
+      .gallery-arrow { width: 40px; height: 40px; font-size: 1.1rem; }
+      .nav-logo img { height: 38px; }
       .alcance-map { grid-template-columns: 1fr 1fr; }
       .alcance-hub { grid-column: span 2; }
       .lang-btn .lang-label { display: none; }
@@ -565,6 +589,32 @@
 </head>
 <body>
 
+  <!-- ICONOS (sprite SVG de línea, se usan con <svg class="ico"><use href="#i-..."/></svg>) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M20 7h-9M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+    <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+    <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7"/><polygon points="12 2 20 7 4 7"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10M12 3v18M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="i-chev-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chev-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  </svg>
+
   <!-- PROGRESS BAR -->
   <div id="progress-bar"></div>
 
@@ -584,7 +634,7 @@
         <li><a href="#contact" class="nav-cta" data-i18n="nav.contact">Contáctenos</a></li>
       </ul>
       <button class="lang-btn" id="langToggle" aria-label="Cambiar idioma">
-        <span>🌐</span>
+        <svg class="ico"><use href="#i-globe"/></svg>
         <span class="lang-label" id="langLabel">EN</span>
       </button>
       <button class="nav-hamburger" id="hamburger" aria-label="Menú">
@@ -636,7 +686,7 @@
             <div class="hero-stat-label" data-i18n="hero.stat2">Países con alcance en las Américas</div>
           </div>
           <div class="hero-stat">
-            <div class="hero-stat-number">LATAM</div>
+            <div class="hero-stat-number is-text">USA &amp; LATAM</div>
             <div class="hero-stat-label" data-i18n="hero.stat3">Presencia y red de aliados regional</div>
           </div>
           <div class="hero-stat">
@@ -646,15 +696,15 @@
         </div>
         <div class="hero-pillars">
           <div class="hero-pillar">
-            <div class="hero-pillar-icon">🎯</div>
+            <div class="hero-pillar-icon"><svg class="ico"><use href="#i-target"/></svg></div>
             <span data-i18n="hero.pillar1">Estrategia</span>
           </div>
           <div class="hero-pillar">
-            <div class="hero-pillar-icon">🏨</div>
+            <div class="hero-pillar-icon"><svg class="ico"><use href="#i-building"/></svg></div>
             <span data-i18n="hero.pillar2">Destinos &amp; Sedes</span>
           </div>
           <div class="hero-pillar">
-            <div class="hero-pillar-icon">⚙️</div>
+            <div class="hero-pillar-icon"><svg class="ico"><use href="#i-sliders"/></svg></div>
             <span data-i18n="hero.pillar3">Operación</span>
           </div>
         </div>
@@ -668,7 +718,7 @@
       <div class="video-wrap gsap-hidden">
         <!-- TODO: reemplazar este placeholder por el <video>/<iframe> real del cliente -->
         <button type="button" class="video-placeholder" aria-label="Reproducir video institucional">
-          <div class="video-play-btn">▶</div>
+          <div class="video-play-btn"><svg class="ico"><use href="#i-play"/></svg></div>
           <span class="video-placeholder-label" data-i18n="video.placeholder">Video institucional — próximamente</span>
         </button>
       </div>
@@ -691,7 +741,7 @@
     <div class="section-inner">
       <div class="about-grid">
         <div class="about-image-wrap gsap-hidden">
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80" alt="Congreso internacional organizado por Growth Business Developers" loading="lazy" />
+          <img src="images/quienes-somos.jpg" alt="Seminario Internacional GMEC 2026 en Panamá, organizado por Growth" loading="lazy" />
           <div class="about-badge">
             <div class="about-badge-num">GBD®</div>
             <div class="about-badge-text">Panama · LATAM</div>
@@ -726,7 +776,7 @@
         </div>
       </div>
 
-      <!-- NUESTRO EQUIPO (4 por fila) -->
+      <!-- NUESTRO EQUIPO -->
       <div class="team-section">
         <div style="text-align:center;max-width:600px;margin:0 auto">
           <div class="section-label gsap-hidden" style="justify-content:center" data-i18n="team.label">Nuestro Equipo</div>
@@ -736,24 +786,29 @@
         </div>
         <div class="team-grid">
           <div class="team-card gsap-hidden">
-            <div class="team-avatar">👩‍💼</div>
-            <div class="team-name" data-i18n="team.n1">Nombre</div>
-            <div class="team-role" data-i18n="team.r1">Dirección General</div>
+            <img class="team-avatar" src="images/equipo/tatiana-angulo.jpg" alt="Tatiana Angulo" loading="lazy" />
+            <div class="team-name">Tatiana Angulo</div>
+            <div class="team-role" data-i18n="team.r1">Gerente General</div>
           </div>
           <div class="team-card gsap-hidden">
-            <div class="team-avatar">👨‍💼</div>
-            <div class="team-name" data-i18n="team.n2">Nombre</div>
-            <div class="team-role" data-i18n="team.r2">Operaciones</div>
+            <img class="team-avatar" src="images/equipo/francisco-pinedo.jpg" alt="Francisco Pinedo" loading="lazy" />
+            <div class="team-name">Francisco Pinedo</div>
+            <div class="team-role" data-i18n="team.r2">Director de Ventas</div>
           </div>
           <div class="team-card gsap-hidden">
-            <div class="team-avatar">👩‍💻</div>
-            <div class="team-name" data-i18n="team.n3">Nombre</div>
-            <div class="team-role" data-i18n="team.r3">Comercial</div>
+            <img class="team-avatar" src="images/equipo/eugenia-powell.jpg" alt="Eugenia Powell" loading="lazy" />
+            <div class="team-name">Eugenia Powell</div>
+            <div class="team-role" data-i18n="team.r3">Estratega</div>
           </div>
           <div class="team-card gsap-hidden">
-            <div class="team-avatar">👨‍🔬</div>
-            <div class="team-name" data-i18n="team.n4">Nombre</div>
-            <div class="team-role" data-i18n="team.r4">Producción</div>
+            <img class="team-avatar" src="images/equipo/fernando-fondevila.jpg" alt="Fernando Fondevila" loading="lazy" />
+            <div class="team-name">Fernando Fondevila</div>
+            <div class="team-role" data-i18n="team.r4">Consultor</div>
+          </div>
+          <div class="team-card gsap-hidden">
+            <img class="team-avatar" src="images/equipo/catalina-escobar.jpg" alt="Catalina Escobar" loading="lazy" />
+            <div class="team-name">Catalina Escobar</div>
+            <div class="team-role" data-i18n="team.r5">Coordinadora MICE</div>
           </div>
         </div>
       </div>
@@ -779,7 +834,7 @@
       <div class="services-grid">
         <!-- 1. Estrategia y Diseño -->
         <div class="service-card gsap-hidden">
-          <div class="service-icon mk">📋</div>
+          <div class="service-icon mk"><svg class="ico"><use href="#i-clipboard"/></svg></div>
           <div class="service-name" data-i18n="s1.name">Estrategia y Diseño</div>
           <div class="service-sub" data-i18n="s1.sub">De la postulación al cierre</div>
           <ul class="service-list">
@@ -794,7 +849,7 @@
         </div>
         <!-- 2. Gestión de destinos y recintos -->
         <div class="service-card gsap-hidden">
-          <div class="service-icon bd">📍</div>
+          <div class="service-icon bd"><svg class="ico"><use href="#i-pin"/></svg></div>
           <div class="service-name" data-i18n="s2.name">Gestión de Destinos</div>
           <div class="service-sub" data-i18n="s2.sub">La sede correcta</div>
           <ul class="service-list">
@@ -807,7 +862,7 @@
         </div>
         <!-- 3. Operación de Congresos -->
         <div class="service-card gsap-hidden">
-          <div class="service-icon ic">⚙️</div>
+          <div class="service-icon ic"><svg class="ico"><use href="#i-calendar"/></svg></div>
           <div class="service-name" data-i18n="s3.name">Operación de Congresos</div>
           <div class="service-sub" data-i18n="s3.sub">Logística integral</div>
           <ul class="service-list">
@@ -821,7 +876,7 @@
         </div>
         <!-- 4. Programa Científico -->
         <div class="service-card gsap-hidden">
-          <div class="service-icon mk">🔬</div>
+          <div class="service-icon mk"><svg class="ico"><use href="#i-book"/></svg></div>
           <div class="service-name" data-i18n="s4.name">Programa Científico</div>
           <div class="service-sub" data-i18n="s4.sub">Contenido académico</div>
           <ul class="service-list">
@@ -833,7 +888,7 @@
         </div>
         <!-- 5. Patrocinios y exposición -->
         <div class="service-card gsap-hidden">
-          <div class="service-icon bd">💎</div>
+          <div class="service-icon bd"><svg class="ico"><use href="#i-handshake"/></svg></div>
           <div class="service-name" data-i18n="s5.name">Patrocinios y Exposición</div>
           <div class="service-sub" data-i18n="s5.sub">Oportunidades comerciales</div>
           <ul class="service-list">
@@ -844,7 +899,7 @@
         </div>
         <!-- 6. Experiencia de los delegados -->
         <div class="service-card gsap-hidden">
-          <div class="service-icon ic">🌟</div>
+          <div class="service-icon ic"><svg class="ico"><use href="#i-star"/></svg></div>
           <div class="service-name" data-i18n="s6.name">Experiencia del Delegado</div>
           <div class="service-sub" data-i18n="s6.sub">Momentos memorables</div>
           <ul class="service-list">
@@ -858,7 +913,7 @@
         </div>
         <!-- 7. Producción Creativa -->
         <div class="service-card gsap-hidden">
-          <div class="service-icon mk">🎨</div>
+          <div class="service-icon mk"><svg class="ico"><use href="#i-camera"/></svg></div>
           <div class="service-name" data-i18n="s7.name">Producción Creativa</div>
           <div class="service-sub" data-i18n="s7.sub">Comunicación on &amp; off</div>
           <ul class="service-list">
@@ -868,56 +923,6 @@
             <li data-i18n="s7.i4">Material gráfico e impresión</li>
           </ul>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALERÍA -->
-  <section id="gallery">
-    <div class="section-inner">
-      <div style="text-align:center;max-width:640px;margin:0 auto">
-        <div class="section-label gsap-hidden" style="justify-content:center" data-i18n="gallery.label">Galería</div>
-        <h2 class="section-title gsap-hidden">
-          <span data-i18n="gallery.title1">Congresos que</span><br/>
-          <em data-i18n="gallery.title2">ya hicimos realidad</em>
-        </h2>
-        <p class="section-desc gsap-hidden" style="margin:0 auto" data-i18n="gallery.desc">
-          Un vistazo real a la energía, el detalle y la escala de los congresos que hemos liderado en la región.
-        </p>
-      </div>
-      <div class="gallery-grid">
-        <figure class="gallery-item gsap-hidden">
-          <img src="img/Sessions_2/INMR_2025_Sessions_2_142.jpg" alt="Inauguración oficial del Congreso Mundial INMR 2025 en Panamá" loading="lazy" />
-          <figcaption data-i18n="gallery.c1">Inauguración oficial del Congreso Mundial INMR 2025 en Panamá</figcaption>
-        </figure>
-        <figure class="gallery-item gsap-hidden">
-          <img src="img/_Welcome/INMR_2025_Welcome_75.jpg" alt="Delegados de más de una decena de países celebrando juntos" loading="lazy" />
-          <figcaption data-i18n="gallery.c2">Delegados de más de una decena de países celebrando juntos</figcaption>
-        </figure>
-        <figure class="gallery-item gsap-hidden">
-          <img src="img/_Welcome/INMR_2025_Welcome_57.jpg" alt="Alianzas que nacen en cada congreso que lideramos" loading="lazy" />
-          <figcaption data-i18n="gallery.c3">Alianzas que nacen en cada congreso que lideramos</figcaption>
-        </figure>
-        <figure class="gallery-item gsap-hidden">
-          <img src="img/Exhibition_1/INMR_2025_Exhibition_1_152.jpg" alt="Networking genuino en el área de exhibición" loading="lazy" />
-          <figcaption data-i18n="gallery.c4">Networking genuino en el área de exhibición</figcaption>
-        </figure>
-        <figure class="gallery-item gsap-hidden">
-          <img src="img/Exhibition_2/INMR_2025_Exhibition_2_63.jpg" alt="Expertos internacionales comparten soluciones técnicas en su stand" loading="lazy" />
-          <figcaption data-i18n="gallery.c5">Expertos internacionales comparten soluciones técnicas en su stand</figcaption>
-        </figure>
-        <figure class="gallery-item gsap-hidden">
-          <img src="img/Exhibition_1/INMR_2025_Exhibition_1_80.jpg" alt="Interacción cercana entre expositores y delegados" loading="lazy" />
-          <figcaption data-i18n="gallery.c6">Interacción cercana entre expositores y delegados</figcaption>
-        </figure>
-        <figure class="gallery-item gsap-hidden">
-          <img src="img/Sessions_1/INMR_2025_Sessions_1_206.jpg" alt="Sesiones técnicas ante un auditorio de doble pantalla" loading="lazy" />
-          <figcaption data-i18n="gallery.c7">Sesiones técnicas ante un auditorio de doble pantalla</figcaption>
-        </figure>
-        <figure class="gallery-item gsap-hidden">
-          <img src="img/Sessions_2/INMR_2025_Sessions_2_80.jpg" alt="Delegados siguen de cerca cada presentación" loading="lazy" />
-          <figcaption data-i18n="gallery.c8">Delegados siguen de cerca cada presentación</figcaption>
-        </figure>
       </div>
     </div>
   </section>
@@ -939,9 +944,9 @@
         </div>
         <div class="alcance-map gsap-hidden">
           <div class="alcance-country alcance-hub">
-            <div class="flag">🇵🇦</div>
-            <div class="name">Panamá</div>
-            <div class="hub-label">Hub Central</div>
+            <div class="flag"><span>🇵🇦</span><span>🇺🇸</span></div>
+            <div class="name" data-i18n="alcance.hubName">Panamá y Florida</div>
+            <div class="hub-label" data-i18n="alcance.hubLabel">Hub Regional</div>
           </div>
           <div class="alcance-country"><div class="flag">🇺🇸</div><div class="name">USA</div></div>
           <div class="alcance-country"><div class="flag">🇲🇽</div><div class="name">México</div></div>
@@ -956,7 +961,7 @@
     </div>
   </section>
 
-  <!-- GALERÍA -->
+  <!-- GALERÍA: 4 bloques de 8 fotos, avance automático + flechas -->
   <section id="gallery">
     <div class="section-inner">
       <div style="text-align:center;max-width:640px;margin:0 auto">
@@ -964,68 +969,55 @@
         <h2 class="section-title gsap-hidden" data-i18n="gallery.title">
           Congresos y eventos<br/><em>que hemos hecho realidad</em>
         </h2>
-        <p class="section-desc gsap-hidden" style="margin:0 auto" data-i18n="gallery.desc">
-          Una muestra de nuestro trabajo en congresos internacionales, galas institucionales
-          y experiencias corporativas ejecutadas con excelencia en la región.
-        </p>
       </div>
-      <div class="gallery-grid">
-        <div class="gallery-item gsap-hidden">
-          <img src="images/galeria/inmr_sessions_day1.jpg" alt="INMR World Congress 2025 — sesión plenaria en Panamá" loading="lazy" />
-          <div class="gallery-caption">
-            <div class="gallery-tag">INMR World Congress · Panamá</div>
-            <div class="gallery-cap" data-i18n="gallery.g1">Congreso internacional con cientos de delegados</div>
+      <div class="gallery-carousel gsap-hidden" id="galleryCarousel">
+        <button type="button" class="gallery-arrow prev" aria-label="Fotos anteriores"><svg class="ico"><use href="#i-chev-left"/></svg></button>
+        <div class="gallery-viewport">
+          <div class="gallery-track">
+            <div class="gallery-slide" aria-label="Bloque 1 de 4">
+              <figure class="gallery-item"><img src="images/galeria/gmec1_01.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/inmr_sessions_day1.jpg" alt="INMR World Congress 2025, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/conalac_gala_wide.jpg" alt="Gala CONALAC" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/gmec2_04.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/evento_terraza.jpg" alt="Evento corporativo organizado por Growth" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/gmec1_16.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/inmr_welcome_75.jpg" alt="INMR World Congress 2025, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/gmec2_12.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+            </div>
+            <div class="gallery-slide" aria-label="Bloque 2 de 4">
+              <figure class="gallery-item"><img src="images/galeria/gmec1_05.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/conalac_36.jpg" alt="Gala CONALAC" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/inmr_registration.jpg" alt="INMR World Congress 2025, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/gmec2_01.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/gala_9636.jpg" alt="Evento corporativo organizado por Growth" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/gmec1_29.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/inmr_exhibition_152.jpg" alt="INMR World Congress 2025, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/gmec2_16.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+            </div>
+            <div class="gallery-slide" aria-label="Bloque 3 de 4">
+              <figure class="gallery-item"><img src="images/galeria/gmec2_09.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/evento_networking.jpg" alt="Evento corporativo organizado por Growth" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/gmec1_06.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/inmr_sessions_ballroom.jpg" alt="INMR World Congress 2025, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/conalac_49.jpg" alt="Gala CONALAC" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/gmec2_41.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/gala_9608.jpg" alt="Evento corporativo organizado por Growth" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/gmec1_14.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+            </div>
+            <div class="gallery-slide" aria-label="Bloque 4 de 4">
+              <figure class="gallery-item"><img src="images/galeria/inmr_welcome_57.jpg" alt="INMR World Congress 2025, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/gmec2_17.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/conalac_gala_banquet.jpg" alt="Gala CONALAC" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/gmec1_24.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/evento_musica.jpg" alt="Evento corporativo organizado por Growth" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/inmr_sessions_142.jpg" alt="INMR World Congress 2025, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/gmec2_25.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+              <figure class="gallery-item"><img src="images/galeria/gmec1_39.jpg" alt="Seminario Internacional GMEC 2026, Panamá" loading="lazy" /></figure>
+            </div>
           </div>
         </div>
-        <div class="gallery-item gsap-hidden">
-          <img src="images/galeria/inmr_sessions_ballroom.jpg" alt="INMR World Congress 2025 — auditorio principal" loading="lazy" />
-          <div class="gallery-caption">
-            <div class="gallery-tag">INMR World Congress · Panamá</div>
-            <div class="gallery-cap" data-i18n="gallery.g2">Sesiones plenarias de alto nivel técnico</div>
-          </div>
-        </div>
-        <div class="gallery-item gsap-hidden">
-          <img src="images/galeria/inmr_registration.jpg" alt="INMR World Congress 2025 — registro de delegados" loading="lazy" />
-          <div class="gallery-caption">
-            <div class="gallery-tag">INMR World Congress · Panamá</div>
-            <div class="gallery-cap" data-i18n="gallery.g3">Registro e inscripción de delegados</div>
-          </div>
-        </div>
-        <div class="gallery-item gsap-hidden">
-          <img src="images/galeria/conalac_gala_wide.jpg" alt="Gala institucional CONALAC" loading="lazy" />
-          <div class="gallery-caption">
-            <div class="gallery-tag">CONALAC</div>
-            <div class="gallery-cap" data-i18n="gallery.g4">Gala institucional con cientos de invitados</div>
-          </div>
-        </div>
-        <div class="gallery-item gsap-hidden">
-          <img src="images/galeria/conalac_gala_banquet.jpg" alt="Cena de gala CONALAC" loading="lazy" />
-          <div class="gallery-caption">
-            <div class="gallery-tag">CONALAC</div>
-            <div class="gallery-cap" data-i18n="gallery.g5">Cena de gala y reconocimientos</div>
-          </div>
-        </div>
-        <div class="gallery-item gsap-hidden">
-          <img src="images/galeria/evento_terraza.jpg" alt="Montaje de evento corporativo exclusivo" loading="lazy" />
-          <div class="gallery-caption">
-            <div class="gallery-tag" data-i18n="gallery.tagCorp">Eventos Corporativos</div>
-            <div class="gallery-cap" data-i18n="gallery.g6">Montajes exclusivos para experiencias memorables</div>
-          </div>
-        </div>
-        <div class="gallery-item gsap-hidden">
-          <img src="images/galeria/evento_networking.jpg" alt="Networking estratégico en evento corporativo" loading="lazy" />
-          <div class="gallery-caption">
-            <div class="gallery-tag" data-i18n="gallery.tagCorp">Eventos Corporativos</div>
-            <div class="gallery-cap" data-i18n="gallery.g7">Espacios de networking estratégico</div>
-          </div>
-        </div>
-        <div class="gallery-item gsap-hidden">
-          <img src="images/galeria/evento_musica.jpg" alt="Entretenimiento en vivo en evento corporativo" loading="lazy" />
-          <div class="gallery-caption">
-            <div class="gallery-tag" data-i18n="gallery.tagCorp">Eventos Corporativos</div>
-            <div class="gallery-cap" data-i18n="gallery.g8">Entretenimiento en vivo</div>
-          </div>
-        </div>
+        <button type="button" class="gallery-arrow next" aria-label="Fotos siguientes"><svg class="ico"><use href="#i-chev-right"/></svg></button>
+        <div class="gallery-dots"></div>
       </div>
     </div>
   </section>
@@ -1040,10 +1032,10 @@
         </h2>
       </div>
       <div class="industries-grid">
-        <div class="industry-card gsap-hidden"><div class="industry-icon">🏛️</div><div class="industry-name" data-i18n="ind.n1">Asociaciones</div><div class="industry-desc" data-i18n="ind.d1">Congresos de asociaciones médicas, científicas, gremiales y profesionales</div></div>
-        <div class="industry-card gsap-hidden"><div class="industry-icon">🏢</div><div class="industry-name" data-i18n="ind.n2">Corporativos</div><div class="industry-desc" data-i18n="ind.d2">Convenciones empresariales, eventos corporativos y encuentros de negocio</div></div>
-        <div class="industry-card gsap-hidden"><div class="industry-icon">⚖️</div><div class="industry-name" data-i18n="ind.n3">Gobierno</div><div class="industry-desc" data-i18n="ind.d3">Cumbres, foros gubernamentales y eventos oficiales con protocolo</div></div>
-        <div class="industry-card gsap-hidden"><div class="industry-icon">🌍</div><div class="industry-name" data-i18n="ind.n4">ONGs</div><div class="industry-desc" data-i18n="ind.d4">Congresos de organizaciones sin fines de lucro y organismos internacionales</div></div>
+        <div class="industry-card gsap-hidden"><div class="industry-icon"><svg class="ico"><use href="#i-landmark"/></svg></div><div class="industry-name" data-i18n="ind.n1">Asociaciones</div><div class="industry-desc" data-i18n="ind.d1">Congresos de asociaciones médicas, científicas, gremiales y profesionales</div></div>
+        <div class="industry-card gsap-hidden"><div class="industry-icon"><svg class="ico"><use href="#i-briefcase"/></svg></div><div class="industry-name" data-i18n="ind.n2">Corporativos</div><div class="industry-desc" data-i18n="ind.d2">Convenciones empresariales, eventos corporativos y encuentros de negocio</div></div>
+        <div class="industry-card gsap-hidden"><div class="industry-icon"><svg class="ico"><use href="#i-scale"/></svg></div><div class="industry-name" data-i18n="ind.n3">Gobierno</div><div class="industry-desc" data-i18n="ind.d3">Cumbres, foros gubernamentales y eventos oficiales con protocolo</div></div>
+        <div class="industry-card gsap-hidden"><div class="industry-icon"><svg class="ico"><use href="#i-globe"/></svg></div><div class="industry-name" data-i18n="ind.n4">ONGs</div><div class="industry-desc" data-i18n="ind.d4">Congresos de organizaciones sin fines de lucro y organismos internacionales</div></div>
       </div>
     </div>
   </section>
@@ -1064,19 +1056,19 @@
           </p>
           <div class="contact-items gsap-hidden">
             <a href="mailto:info@gbdpanama.com" class="contact-item">
-              <div class="contact-item-icon">✉️</div>
+              <div class="contact-item-icon"><svg class="ico"><use href="#i-mail"/></svg></div>
               <div class="contact-item-text"><strong data-i18n="contact.correo">Correo</strong><span>info@gbdpanama.com</span></div>
             </a>
             <a href="https://www.linkedin.com/company/growth-business-developers" target="_blank" rel="noopener" class="contact-item">
-              <div class="contact-item-icon">💼</div>
+              <div class="contact-item-icon"><svg class="ico"><use href="#i-linkedin"/></svg></div>
               <div class="contact-item-text"><strong>LinkedIn</strong><span>Growth Business Developers</span></div>
             </a>
-            <a href="tel:+50765774280" class="contact-item">
-              <div class="contact-item-icon">📞</div>
-              <div class="contact-item-text"><strong data-i18n="contact.tel">Teléfono</strong><span>+507 6577-4280</span></div>
+            <a href="tel:+13127351050" class="contact-item">
+              <div class="contact-item-icon"><svg class="ico"><use href="#i-phone"/></svg></div>
+              <div class="contact-item-text"><strong data-i18n="contact.tel">Teléfono</strong><span>+1 312 735 1050</span></div>
             </a>
             <a href="https://www.instagram.com/gbdbiz.latam" target="_blank" rel="noopener" class="contact-item">
-              <div class="contact-item-icon">📸</div>
+              <div class="contact-item-icon"><svg class="ico"><use href="#i-instagram"/></svg></div>
               <div class="contact-item-text"><strong>Instagram</strong><span>@gbdbiz.latam</span></div>
             </a>
           </div>
@@ -1134,10 +1126,10 @@
             Tus socios estratégicos en LATAM.
           </p>
           <div class="footer-social">
-            <a href="https://www.instagram.com/gbdbiz.latam" target="_blank" rel="noopener" title="Instagram">📸</a>
-            <a href="https://www.linkedin.com/company/growth-business-developers" target="_blank" rel="noopener" title="LinkedIn">💼</a>
-            <a href="mailto:info@gbdpanama.com" title="Email">✉️</a>
-            <a href="tel:+50765774280" title="Teléfono">📞</a>
+            <a href="https://www.instagram.com/gbdbiz.latam" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram"><svg class="ico"><use href="#i-instagram"/></svg></a>
+            <a href="https://www.linkedin.com/company/growth-business-developers" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><svg class="ico"><use href="#i-linkedin"/></svg></a>
+            <a href="mailto:info@gbdpanama.com" title="Email" aria-label="Email"><svg class="ico"><use href="#i-mail"/></svg></a>
+            <a href="tel:+13127351050" title="Teléfono" aria-label="Teléfono"><svg class="ico"><use href="#i-phone"/></svg></a>
           </div>
         </div>
         <div class="footer-col">
@@ -1162,7 +1154,7 @@
           <h4 data-i18n="footer.col3">Contacto</h4>
           <ul>
             <li><a href="mailto:info@gbdpanama.com">info@gbdpanama.com</a></li>
-            <li><a href="tel:+50765774280">+507 6577-4280</a></li>
+            <li><a href="tel:+13127351050">+1 312 735 1050</a></li>
             <li><a href="https://www.instagram.com/gbdbiz.latam" target="_blank" rel="noopener">@gbdbiz.latam</a></li>
             <li><a href="https://www.linkedin.com/company/growth-business-developers" target="_blank" rel="noopener">LinkedIn</a></li>
           </ul>
@@ -1170,7 +1162,7 @@
       </div>
       <div class="footer-bottom">
         <p>© 2026 Growth Business Developers®. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
-        <span><span data-i18n="footer.made">Hecho con ❤️ para</span> <em>LATAM</em></span>
+        <span><span data-i18n="footer.made">Hecho con</span> <svg class="ico"><use href="#i-heart"/></svg> <span data-i18n="footer.for">para</span> <em>LATAM</em></span>
       </div>
     </div>
   </footer>
@@ -1218,10 +1210,8 @@
       "about.f6": "Gestión integral 360°",
       "team.label": "Nuestro Equipo",
       "team.title": "Profesionales comprometidos<br/>con <em>tu congreso</em>",
-      "team.n1": "Nombre", "team.r1": "Dirección General",
-      "team.n2": "Nombre", "team.r2": "Operaciones",
-      "team.n3": "Nombre", "team.r3": "Comercial",
-      "team.n4": "Nombre", "team.r4": "Producción",
+      "team.r1": "Gerente General", "team.r2": "Director de Ventas", "team.r3": "Estratega",
+      "team.r4": "Consultor", "team.r5": "Coordinadora MICE",
       "services.label": "¿Qué Hacemos?",
       "services.title1": "Servicios integrales",
       "services.title2": "para tu congreso",
@@ -1251,34 +1241,13 @@
       "s7.name": "Producción Creativa", "s7.sub": "Comunicación on & off",
       "s7.i1": "Producción integral de piezas de comunicación on y off",
       "s7.i2": "Fotografía y video", "s7.i3": "Branding y diseño", "s7.i4": "Material gráfico e impresión",
-      "gallery.label": "Galería",
-      "gallery.title1": "Congresos que",
-      "gallery.title2": "ya hicimos realidad",
-      "gallery.desc": "Un vistazo real a la energía, el detalle y la escala de los congresos que hemos liderado en la región.",
-      "gallery.c1": "Inauguración oficial del Congreso Mundial INMR 2025 en Panamá",
-      "gallery.c2": "Delegados de más de una decena de países celebrando juntos",
-      "gallery.c3": "Alianzas que nacen en cada congreso que lideramos",
-      "gallery.c4": "Networking genuino en el área de exhibición",
-      "gallery.c5": "Expertos internacionales comparten soluciones técnicas en su stand",
-      "gallery.c6": "Interacción cercana entre expositores y delegados",
-      "gallery.c7": "Sesiones técnicas ante un auditorio de doble pantalla",
-      "gallery.c8": "Delegados siguen de cerca cada presentación",
       "alcance.label": "Alcance Regional",
       "alcance.title1": "Conectamos destinos",
       "alcance.title2": "en toda la región",
       "alcance.desc": "Operamos con una sólida red de alianzas estratégicas, bureaus de convenciones y proveedores de primer nivel en los principales destinos de las Américas.",
+      "alcance.hubName": "Panamá y Florida", "alcance.hubLabel": "Hub Regional",
       "gallery.label": "Galería",
       "gallery.title": 'Congresos y eventos<br/><em>que hemos hecho realidad</em>',
-      "gallery.desc": "Una muestra de nuestro trabajo en congresos internacionales, galas institucionales y experiencias corporativas ejecutadas con excelencia en la región.",
-      "gallery.tagCorp": "Eventos Corporativos",
-      "gallery.g1": "Congreso internacional con cientos de delegados",
-      "gallery.g2": "Sesiones plenarias de alto nivel técnico",
-      "gallery.g3": "Registro e inscripción de delegados",
-      "gallery.g4": "Gala institucional con cientos de invitados",
-      "gallery.g5": "Cena de gala y reconocimientos",
-      "gallery.g6": "Montajes exclusivos para experiencias memorables",
-      "gallery.g7": "Espacios de networking estratégico",
-      "gallery.g8": "Entretenimiento en vivo",
       "ind.label": "Sectores", "ind.title": "Experiencia en los sectores", "ind.title2": "que más importan",
       "ind.n1": "Asociaciones", "ind.d1": "Congresos de asociaciones médicas, científicas, gremiales y profesionales",
       "ind.n2": "Corporativos", "ind.d2": "Convenciones empresariales, eventos corporativos y encuentros de negocio",
@@ -1297,7 +1266,7 @@
       "footer.desc": "Lideramos congresos. Conectamos destinos. Creamos oportunidades. Tus socios estratégicos en LATAM.",
       "footer.col1": "Servicios", "footer.col2": "Empresa", "footer.col3": "Contacto",
       "footer.rights": "Todos los derechos reservados.",
-      "footer.made": "Hecho con ❤️ para"
+      "footer.made": "Hecho con", "footer.for": "para"
     },
     en: {
       "nav.about": "About",
@@ -1337,10 +1306,8 @@
       "about.f6": "360° comprehensive management",
       "team.label": "Our Team",
       "team.title": "Professionals committed<br/>to <em>your congress</em>",
-      "team.n1": "Name", "team.r1": "General Management",
-      "team.n2": "Name", "team.r2": "Operations",
-      "team.n3": "Name", "team.r3": "Commercial",
-      "team.n4": "Name", "team.r4": "Production",
+      "team.r1": "General Manager", "team.r2": "Sales Director", "team.r3": "Strategist",
+      "team.r4": "Consultant", "team.r5": "MICE Coordinator",
       "services.label": "What We Do",
       "services.title1": "Comprehensive services",
       "services.title2": "for your congress",
@@ -1370,34 +1337,13 @@
       "s7.name": "Creative Production", "s7.sub": "On & off communication",
       "s7.i1": "Comprehensive on & off communication production",
       "s7.i2": "Photography & video", "s7.i3": "Branding & design", "s7.i4": "Graphic material & printing",
-      "gallery.label": "Gallery",
-      "gallery.title1": "Congresses we've",
-      "gallery.title2": "already brought to life",
-      "gallery.desc": "A real look at the energy, detail, and scale of the congresses we've led across the region.",
-      "gallery.c1": "Official opening of the INMR 2025 World Congress in Panama",
-      "gallery.c2": "Delegates from a dozen-plus countries celebrating together",
-      "gallery.c3": "Partnerships forged at every congress we lead",
-      "gallery.c4": "Genuine networking in the exhibition area",
-      "gallery.c5": "International experts share technical solutions at their booth",
-      "gallery.c6": "Close interaction between exhibitors and delegates",
-      "gallery.c7": "Technical sessions before a dual-screen auditorium",
-      "gallery.c8": "Delegates closely follow every presentation",
       "alcance.label": "Regional Reach",
       "alcance.title1": "Connecting destinations",
       "alcance.title2": "across the region",
       "alcance.desc": "We operate with a solid network of strategic alliances, convention bureaus, and top-tier providers across the main destinations of the Americas.",
+      "alcance.hubName": "Panama & Florida", "alcance.hubLabel": "Regional Hub",
       "gallery.label": "Gallery",
       "gallery.title": 'Congresses and events<br/><em>we have brought to life</em>',
-      "gallery.desc": "A glimpse of our work across international congresses, institutional galas, and corporate experiences delivered with excellence throughout the region.",
-      "gallery.tagCorp": "Corporate Events",
-      "gallery.g1": "International congress with hundreds of delegates",
-      "gallery.g2": "High-level technical plenary sessions",
-      "gallery.g3": "Delegate registration and check-in",
-      "gallery.g4": "Institutional gala with hundreds of guests",
-      "gallery.g5": "Gala dinner and award ceremony",
-      "gallery.g6": "Exclusive setups for memorable experiences",
-      "gallery.g7": "Strategic networking spaces",
-      "gallery.g8": "Live entertainment",
       "ind.label": "Sectors", "ind.title": "Experience in the sectors", "ind.title2": "that matter most",
       "ind.n1": "Associations", "ind.d1": "Congresses for medical, scientific, trade, and professional associations",
       "ind.n2": "Corporates", "ind.d2": "Business conventions, corporate events, and business meetings",
@@ -1416,7 +1362,7 @@
       "footer.desc": "We lead congresses. Connect destinations. Create opportunities. Your strategic partners in LATAM.",
       "footer.col1": "Services", "footer.col2": "Company", "footer.col3": "Contact",
       "footer.rights": "All rights reserved.",
-      "footer.made": "Made with ❤️ for"
+      "footer.made": "Made with", "footer.for": "for"
     }
   };
 
@@ -1593,6 +1539,61 @@
     ease: 'none',
     scrollTrigger: { trigger: '#about', start: 'top bottom', end: 'bottom top', scrub: true }
   });
+
+  /* ════════════════════════════════════════
+     GALERÍA — carrusel de bloques
+  ════════════════════════════════════════ */
+  (function initGallery() {
+    const root   = document.getElementById('galleryCarousel');
+    const track  = root.querySelector('.gallery-track');
+    const slides = root.querySelectorAll('.gallery-slide');
+    const dotsEl = root.querySelector('.gallery-dots');
+    const total  = slides.length;
+    const DELAY  = 5000;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let index = 0, timer = null;
+
+    const dots = Array.from(slides, (_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Bloque ' + (i + 1));
+      b.addEventListener('click', () => { goTo(i); restart(); });
+      dotsEl.appendChild(b);
+      return b;
+    });
+
+    // Las fotos fuera de pantalla son lazy: se cargan al llegar a su bloque (y el siguiente)
+    function preload(i) {
+      slides[(i + total) % total].querySelectorAll('img').forEach(img => { img.loading = 'eager'; });
+    }
+
+    function goTo(i) {
+      index = (i + total) % total;
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      dots.forEach((d, k) => d.classList.toggle('active', k === index));
+      preload(index); preload(index + 1);
+    }
+    function stop()    { clearInterval(timer); timer = null; }
+    function restart() { stop(); if (!reduceMotion) timer = setInterval(() => goTo(index + 1), DELAY); }
+
+    root.querySelector('.gallery-arrow.prev').addEventListener('click', () => { goTo(index - 1); restart(); });
+    root.querySelector('.gallery-arrow.next').addEventListener('click', () => { goTo(index + 1); restart(); });
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', restart);
+
+    // Swipe en pantallas táctiles
+    let startX = null;
+    root.addEventListener('touchstart', e => { startX = e.touches[0].clientX; stop(); }, { passive: true });
+    root.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) goTo(index + (dx < 0 ? 1 : -1));
+      startX = null; restart();
+    });
+
+    goTo(0);
+    restart();
+  })();
 
   /* ════════════════════════════════════════
      SCROLL PROGRESS BAR
